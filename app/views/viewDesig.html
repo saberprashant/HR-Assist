@@ -1,0 +1,51 @@
+<div>
+  <br>
+  <button style="float:right;" type="button" class="btn btn-success" ng-click="addDesig()">+ New Designation</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div ng-repeat="desig in designations">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{desig.name}}</h3>
+      </div>
+      <div class="panel-body">
+        <!-- <h3>Designation Description : </h3> -->
+
+        <h4>Salary structure</h4>
+
+        <!--Table-->
+        <table class="table">
+
+          <!--Table head-->
+          <thead class="table-success">
+            <tr class="text-white table-warning">
+              <th>#</th>
+              <th>Component</th>
+              <th>Value</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+            <tr ng-repeat="(index,salary) in desig.salaryStructure">
+              <th scope="row">{{index+1}}</th>
+              <td>{{salary.name}}</td>
+              <td ng-if=" salary.valueType === 'percentage' ">{{salary.value}} %</td>
+              <td ng-if=" salary.valueType === 'custom' ">{{salary.value}} INR</td>
+              <td>{{salary.amount}}</td>
+            </tr>
+            
+          </tbody>
+          <!--Table body-->
+
+        </table>
+        <!--Table-->
+        <h3>{{salary.type}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

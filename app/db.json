@@ -1,0 +1,150 @@
+{
+  "salaries": [
+    {
+      "name": "HRA",
+      "value": "15",
+      "valueType": "percentage",
+      "type": "allowance",
+      "id": 1
+    },
+    {
+      "name": "DA",
+      "value": "13",
+      "valueType": "percentage",
+      "type": "deduction",
+      "id": 2
+    },
+    {
+      "name": "TA",
+      "value": "5000",
+      "valueType": "custom",
+      "type": "allowance",
+      "id": 3
+    },
+    {
+      "name": "Internet",
+      "value": "1000",
+      "valueType": "custom",
+      "type": "allowance",
+      "id": 4
+    },
+    {
+      "type": "allowance",
+      "valueType": "custom",
+      "value": "10000",
+      "name": "Misc",
+      "id": 5
+    }
+  ],
+  "designations": [
+    {
+      "name": "Manager",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": 15,
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 3750
+        },
+        {
+          "name": "pa",
+          "value": "12",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 2,
+          "amount": 3000
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "25000"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Junior Engineer",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": 15,
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 5250
+        },
+        {
+          "name": "pa",
+          "value": "15",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 2,
+          "amount": 5250
+        },
+        {
+          "name": "ta",
+          "value": "2000",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 3,
+          "amount": "3000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "35000"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Senior Engineer",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": 15,
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 6000
+        },
+        {
+          "name": "ta",
+          "value": "2000",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 3,
+          "amount": "4000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "40000"
+        }
+      ],
+      "id": 3
+    }
+  ],
+  "shifts": [
+    {
+      "name": "Shift 1",
+      "start": "08:00",
+      "end": "15:00",
+      "id": 1
+    },
+    {
+      "name": "Shift 2",
+      "start": "10:00",
+      "end": "18:00",
+      "id": 2
+    },
+    {
+      "name": "Shift 3",
+      "start": "12:00",
+      "end": "20:00",
+      "id": 3
+    }
+  ]
+}

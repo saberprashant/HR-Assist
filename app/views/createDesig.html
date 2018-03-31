@@ -1,0 +1,114 @@
+<h3>Create Designation</h3>
+<div class="createDesignation">
+    <form name="form">
+        Designation Name :
+        <input class="form-control" type="text" ng-model="designationName" name="designationName" ng-required="true" ng-minlength="2"
+            ng-maxlength="30" designation-name oldname="{{oldname}}">
+            <div uib-alert class="alert-danger" ng-messages="form.designationName.$error" ng-if="form.designationName.$touched && form.designationName.$invalid">
+                <p ng-message="required">
+                    It is a required field.
+                </p>
+            <p ng-message="minlength">
+                Should be at least 2 letters long.
+            </p>
+            <p ng-message="maxlength">
+                Should be at most 30 characters.
+            </p>
+            <p ng-message="nameAvailable">
+                Designation name already exists.
+            </p>
+        </div>
+        Description:
+        <textarea class="form-control" ng-model="designationDescription" ng-maxlength="100" name="designationDescription"></textarea>
+        <div uib-alert class="alert-danger" ng-if="form.designationDescription.$error.maxlength">
+            Max length for Description is 100 characters.
+        </div>
+        <h3>Set Salary Structure</h3>
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                Components Available:-
+                <ul dnd-list="availableSalaries">
+                    <li ng-repeat="item in availableSalaries" dnd-draggable="item" dnd-moved="availableSalaries.splice($index, 1)" dnd-effect-allowed="move">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                Selected Components
+                <ul dnd-list="selectedSalaries">
+                    <li>Basic
+                        <input class="form-control" type="text" ng-model="basicAmount" name="basicAmount" ng-pattern="/^\d+$/"
+                            ng-required="true" ng-change="updateTotal()">
+                        <div uib-alert class="alert-danger" ng-messages="form.basicAmount.$error" ng-if="form.basicAmount.$invalid && form.basicAmount.$touched">
+                            <p ng-message="pattern">Enter a valid no.</p>
+                            <p ng-message="required">It is a required field</p>
+                        </div>
+                    </li>
+                    <li ng-init="item.valueType=='custom'" ng-show="item.name!='basic'" uib-alert ng-class="{ 'alert-success': item.type === 'allowance','alert-danger': item.type==='deduction'}"
+                        ng-repeat="item in selectedSalaries" dnd-draggable="item" dnd-moved="selectedSalaries.splice($index, 1)"
+                        dnd-effect-allowed="move">
+                        <b>{{item.name}}</b>
+                        <a class="pull-right" ng-click="remove(item.id)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                        <br> %Age of basic
+                        <input type="radio" value="percentage" ng-model="item.valueType" ng-required="true"> Custom Value
+                        <input type="radio" value="custom" ng-model="item.valueType" ng-required="true">
+
+                        <!-- For custom input in INR of salary component-->
+                        <div class="form-group" ng-if="item.valueType==='custom'">
+                            Amount
+                            <input type="text" ng-model="item.amount" class="form-control" name="{{'component'+item.id}}"
+                                ng-pattern="/^\d+$/" ng-required="true" ng-change="updateTotal()">
+                            <div uib-alert class="alert-danger" ng-messages="form['component'+item.id].$error" ng-if="form['component'+item.id].$touched && form['component'+item.id].$invalid">
+                                <p ng-message="pattern">Enter a valid amount</p>
+                                <p ng-message="required">It is a required field</p>
+                            </div>
+                        </div>
+
+                        <!-- For percentage based input of salary component -->
+                        <div class="form-group" ng-if="item.valueType==='percentage'">
+                            Percentage
+                            <input type="text" ng-model="item.value" class="form-control" ng-required="true"
+                                percentage name="{{'component' + item.id}}" ng-pattern="/^\d+$/" ng-change="updateTotal()">
+                            <div uib-alert class="alert-danger" ng-messages="form['component'+item.id].$error" ng-if="form['component'+item.id].$invalid && form['component'+item.id].$touched">
+                                <p ng-message="pattern">Enter a valid number</p>
+                                <p ng-message="required">It is a required field</p>
+                                <p ng-message="percentage">Enter a valid percentage</p>
+                            </div>
+                            Amount:
+                            <p>{{ item.amount=basicAmount*item.value/100 }}</p>
+                        </div>
+                    </li>
+                    <li>Total:{{total}}
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <br>
+        <button ng-show="!editMode" class="btn btn-success" ng-click="addDesignation()" ng-disabled="form.$invalid">Add Designation</button>
+        <button ng-show="editMode" class="btn btn-success" ng-click="updateDesignation()" ng-disabled="form.$invalid">Update Designation</button>
+    </form>
+
+    <div uib-alert class="alert-success" ng-show="designationSuccess">
+        Designation added successfully!
+    </div>
+    <div uib-alert class="alert-danger" ng-show="designationFailed">
+        Designation was not added!
+    </div>
+
+    <div uib-alert class="alert-success" ng-show="designationUpdateSuccess">
+        Designation updated successfully!
+    </div>
+    <div uib-alert class="alert-danger" ng-show="designationUpdateFailed">
+        Designation was not updated!
+    </div>
+
+
+
+</div>

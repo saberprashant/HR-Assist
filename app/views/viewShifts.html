@@ -1,0 +1,25 @@
+<div>
+  <br>
+  <button style="float:right;" type="button" class="btn btn-success" ng-click="addShiftWindow()">+ New Shift</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div ng-repeat="shift in shifts">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h2 style="float:left" class="panel-title">{{shift.name}}</h2>
+  
+        <div style="float:right">
+            <span class="glyphicon glyphicon-pencil" ng-click="editShiftWindow(shift)"></span>&nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-trash" ng-click="remove(shift.id)"></span>
+        </div>
+        <br>  
+      </div>
+      <div class="panel-body">
+        <h5>Start Time : {{shift.start}}</h5>
+        <h5>End Time : {{shift.end}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="modal-demo">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title" ng-if="!editMode">Add New Shift</h3>
+      <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{shift.name}}</h3>
+    </div>
+    <form>
+      <div class="container">
+      <div>
+        <h4>Name:</h4>
+        <input type="text" placeholder="like Shift 1, Shift 2,.." ng-model="shift.name">
+      </div>
+  
+      <div>
+        <h4>Start Time:</h4>
+        <input type="text" placeholder="like, 09:00" ng-model="shift.start">
+      </div>
+      <div>
+        <h4>End Time:</h4>
+        <input type="text" placeholder="like, 18:00" ng-model="shift.end">
+      </div>
+
+    </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-click="addShift()">Save</button>
+        <button class="btn btn-primary" type="submit" ng-if="editMode" ng-click="updateShift(shift)">Update</button>
+
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+    </form>
+  
+  </div>

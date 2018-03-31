@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/createDesignation.css">
+  <!-- endbuild -->
+
+</head>
+
+<body ng-app="hrmsAngularjsApp">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <!-- Page Content Holder -->
+
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>HR Manager</h3>
+        <strong>HR</strong>
+      </div>
+
+      <ul class="list-unstyled components">
+        <li>
+          <a ui-sref="view_salary()">
+            Salary Components
+          </a>
+        </li>
+        <li>
+          <a href="#desigSubmenu" data-toggle="collapse" aria-expanded="false">
+            Designations
+          </a>
+          <ul class="collapse list-unstyled" id="desigSubmenu">
+            <li>
+              <a ui-sref="create_desig()">Create</a>
+            </li>
+            <li>
+              <a ui-sref="view_desig()">View</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+            <a ui-sref="view_shifts()">
+              Shifts
+            </a>
+          </li>
+        <li>
+          <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false">
+            Employees
+          </a>
+          <ul class="collapse list-unstyled" id="empSubmenu">
+            <li>
+              <a href="#">Create</a>
+            </li>
+            <li>
+              <a href="#">View</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            Capture Attendance
+          </a>
+        </li>
+        <li>
+        </a>
+          <a href="#">
+            Settings
+            </a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content" class="col-sm-9">
+      <div ui-view> </div>
+      
+
+      <!-- <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+          <div class="navbar-header">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+              <i class="glyphicon glyphicon-align-left"></i>
+              <span>Toggle Sidebar</span>
+            </button>
+          </div>
+
+
+        </div>
+      </nav> -->
+
+
+    </div>
+  </div>
+
+
+
+
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- jQuery CDN -->
+  <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>  -->
+  <!-- Bootstrap Js CDN -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+      });
+    });
+  </script>
+
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+
+
+
+  <!-- controllers -->
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/about.js"></script>
+  <script src="scripts/controllers/createSalCtrl.js"></script>
+  <script src="scripts/controllers/viewSalCtrl.js"></script>
+  <script src="scripts/controllers/viewDesigCtrl.js"></script>
+  <script src="scripts/controllers/createDesigCtrl.js"></script>
+  <script src="scripts/controllers/viewShiftsCtrl.js"></script>
+  <script src="scripts/controllers/createShiftsCtrl.js"></script>
+
+
+  <!-- services -->
+  <script src="scripts/services/SalaryServ.js"></script>
+  <script src="scripts/services/DesignationServ.js"></script>
+  <script src="scripts/services/ShiftsServ.js"></script>
+
+
+  <!-- endbuild -->
+
+
+
+</body>
+
+</html>

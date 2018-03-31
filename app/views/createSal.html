@@ -1,0 +1,59 @@
+<div class="modal-body">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title" ng-if="!editMode">New Salary Component</h3>
+    <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{salary.name}}</h3>
+  </div>
+
+  <div >
+  <form name="form" novalidate>
+      <div>
+        <h4>Name : </h4>
+        <input class="form-control" type="text" name="salName" placeholder="like HRA, DA, TA............." ng-model="salary.name"
+         ng-minlength="2" ng-maxlength="15" ng-required="true">
+      </div>
+      <div uib-alert class="alert-danger" ng-messages="form.salName.$error" ng-if="form.salName.$invalid && 
+          form.salName.$touched">
+        <p ng-message="required">It is a required field</p>
+        <!-- <p ng-message="nameAvailable">Component Name already exists.</p> -->
+        <p ng-message="maxlength">Component name too long.</p>
+        <p ng-message="minlength">Component name too short.</p>
+
+      </div>
+      <div>
+        <h4>Value : </h4>
+        <input class="form-control" type="text" name="salValue" placeholder="like, 15 or 25000"
+         ng-model="salary.value"  ng-maxlength="6" ng-required="true" ng-pattern="/^[0-9]*$/">
+      </div>
+      <div uib-alert class="alert-danger" ng-messages="form.salValue.$error" ng-if="form.salValue.$invalid && 
+          form.salValue.$touched">
+        <p ng-message="required">It is a required field</p>
+        <!-- <p ng-message="nameAvailable">Component Name already exists.</p> -->
+        <p ng-message="pattern">Enter a valid number</p>
+        <p ng-message="maxlength">This should be under 6 values.</p>
+      </div>
+      <div>
+        <h4>Value Type : </h4>
+        <input type="radio" name="salValueType" ng-model="salary.valueType" value="percentage" ng-required="true">%
+        <input type="radio" name="salValueType" ng-model="salary.valueType" value="custom" ng-required="true">INR
+      </div>
+
+      <div>
+        <h4>Type : </h4>
+        <input type="radio" name="salType" ng-model="salary.type" value="allowance" ng-required="true">Allowance
+        <input type="radio" name="salType" ng-model="salary.type" value="deduction" ng-required="true">Deduction
+      </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-disabled="form.$invalid" ng-click="saveSal()">Save</button>
+      <button class="btn btn-primary" type="submit" ng-if="editMode" ng-disabled="form.$invalid" ng-click="updateSal(salary)">Update</button>
+
+      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+    <div uib-alert class="alert-danger" ng-messages="form.componentName.$error" ng-if="form.componentName.$invalid && form.componentName.$touched">
+      <p ng-message="required">It is a required field</p>
+      <p ng-message="nameAvailable">Component Name already exists.</p>
+      <p ng-message="maxlength">Component name too long.</p>
+    </div>
+  </form>
+</div>
+</div>
