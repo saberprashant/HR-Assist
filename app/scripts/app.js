@@ -32,7 +32,7 @@ angular
       })
       .state('home', {
         url: '/',
-        template: '<strong>Please, select from menu!</strong>'
+        templateUrl: 'views/welcome.html'
       })
 
       .state('view_salary', {
@@ -57,6 +57,30 @@ angular
         url: '/view_shifts',
         templateUrl: 'views/viewShifts.html',
         controller: 'viewShiftsCtrl',
+        // controllerAs: 'salary'
+      })
+      .state('create_emp', {
+        url: '/create_emp',
+        templateUrl: 'views/createEmployee.html',
+        controller: 'createEmpCtrl',
+        params: {
+          type: 'new',
+          id: 0
+        }
+      })
+      .state('view_emp', {
+        url: '/view_emp',
+        templateUrl: 'views/viewEmployee.html',
+        controller: 'viewEmpCtrl',
+        params: {
+          type: 'new',
+          id: 0
+        }
+      })
+      .state('take_attendance', {
+        url: '/take_attendance',
+        templateUrl: 'views/takeAttendance.html',
+        controller: 'takeAttendanceCtrl',
         // controllerAs: 'salary'
       })
 

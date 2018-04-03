@@ -12,8 +12,13 @@ angular.module("hrmsAngularjsApp")
         $scope.availableSalaries = response.data;
       });
 
+      // $scope.update = function(index, item, external, type) {
+      //   updateTotal();
+      // }
 
       $scope.updateTotal = function () {
+        console.log('Inside update total');
+        
         $timeout(function () {
           $scope.total = parseInt($scope.basicAmount);
           for (let i = 0; i < $scope.selectedSalaries.length; i++) {
@@ -39,7 +44,7 @@ angular.module("hrmsAngularjsApp")
       };
 
 
-      //Set total to basic amount
+      //Set total to basic amount initially
       $scope.total = parseInt($scope.basicAmount);
 
 

@@ -8,17 +8,20 @@
   <form name="form" novalidate>
       <div>
         <h4>Name : </h4>
-        <input class="form-control" type="text" name="salName" placeholder="like HRA, DA, TA............." ng-model="salary.name"
-         ng-minlength="2" ng-maxlength="15" ng-required="true">
+        <input class="form-control" type="text" name="salName" placeholder="like HRA, DA, TA............." 
+        salary-name-check-direc oldname="{{refName}}" ng-model="salary.name" ng-minlength="2" ng-maxlength="15" 
+        ng-required="true">
       </div>
       <div uib-alert class="alert-danger" ng-messages="form.salName.$error" ng-if="form.salName.$invalid && 
           form.salName.$touched">
         <p ng-message="required">It is a required field</p>
-        <!-- <p ng-message="nameAvailable">Component Name already exists.</p> -->
+        <p ng-message="nameAvailable">Component Name already exists.</p>
         <p ng-message="maxlength">Component name too long.</p>
         <p ng-message="minlength">Component name too short.</p>
 
       </div>
+      Pending:{{form.salName.$pending}}
+      Error:{{form.salName.$error}}
       <div>
         <h4>Value : </h4>
         <input class="form-control" type="text" name="salValue" placeholder="like, 15 or 25000"
@@ -55,5 +58,18 @@
       <p ng-message="maxlength">Component name too long.</p>
     </div>
   </form>
+  <div uib-alert class="alert-success" ng-show="salarySuccess">
+    Salary Component added successfully!
+  </div>
+  <div uib-alert class="alert-danger" ng-show="salaryFailed">
+    Salary Component was not added!
+  </div>
+
+  <div uib-alert class="alert-success" ng-show="salaryUpdateSuccess">
+    Salary Component updated successfully!
+  </div>
+  <div uib-alert class="alert-danger" ng-show="salaryUpdateFailed">
+    Salary Component was not updated!
+  </div>
 </div>
 </div>

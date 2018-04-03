@@ -2,17 +2,10 @@
   "salaries": [
     {
       "name": "HRA",
-      "value": "15",
+      "value": "16",
       "valueType": "percentage",
       "type": "allowance",
       "id": 1
-    },
-    {
-      "name": "DA",
-      "value": "13",
-      "valueType": "percentage",
-      "type": "deduction",
-      "id": 2
     },
     {
       "name": "TA",
@@ -34,89 +27,72 @@
       "value": "10000",
       "name": "Misc",
       "id": 5
+    },
+    {
+      "name": "Food",
+      "value": "3500",
+      "valueType": "custom",
+      "type": "deduction",
+      "id": 6
+    },
+    {
+      "name": "DA",
+      "value": "10",
+      "valueType": "percentage",
+      "type": "allowance",
+      "id": 7
+    },
+    {
+      "name": "PF",
+      "value": "10",
+      "valueType": "percentage",
+      "type": "deduction",
+      "id": 8
     }
   ],
   "designations": [
     {
-      "name": "Manager",
+      "name": "Technical Manager",
       "salaryStructure": [
         {
           "name": "HRA",
-          "value": 15,
+          "value": "16",
           "valueType": "percentage",
           "type": "allowance",
           "id": 1,
-          "amount": 3750
+          "amount": 6400
         },
         {
-          "name": "pa",
-          "value": "12",
-          "valueType": "percentage",
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
           "type": "allowance",
-          "id": 2,
-          "amount": 3000
+          "id": 4,
+          "amount": "1000"
         },
         {
-          "name": "basic",
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
           "type": "allowance",
-          "amount": "25000"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "name": "Junior Engineer",
-      "salaryStructure": [
-        {
-          "name": "HRA",
-          "value": 15,
-          "valueType": "percentage",
-          "type": "allowance",
-          "id": 1,
-          "amount": 5250
+          "id": 3,
+          "amount": "5000"
         },
         {
-          "name": "pa",
-          "value": "15",
-          "valueType": "percentage",
-          "type": "allowance",
-          "id": 2,
-          "amount": 5250
-        },
-        {
-          "name": "ta",
-          "value": "2000",
+          "name": "Food",
+          "value": "3500",
           "valueType": "custom",
           "type": "deduction",
-          "id": 3,
-          "amount": "3000"
+          "id": 6,
+          "amount": "3500"
         },
         {
-          "name": "basic",
-          "type": "allowance",
-          "amount": "35000"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "name": "Senior Engineer",
-      "salaryStructure": [
-        {
-          "name": "HRA",
-          "value": 15,
+          "name": "PF",
+          "value": "10",
           "valueType": "percentage",
-          "type": "allowance",
-          "id": 1,
-          "amount": 6000
-        },
-        {
-          "name": "ta",
-          "value": "2000",
-          "valueType": "custom",
           "type": "deduction",
-          "id": 3,
-          "amount": "4000"
+          "id": 8,
+          "amount": 4000
         },
         {
           "name": "basic",
@@ -124,7 +100,136 @@
           "amount": "40000"
         }
       ],
+      "id": 1
+    },
+    {
+      "name": "Android Developer",
+      "salaryStructure": [
+        {
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "5000"
+        },
+        {
+          "name": "Food",
+          "value": "3500",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 6,
+          "amount": "3500"
+        },
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 4800
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "30000"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": "Junior SDE",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 4000
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 2500
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "25000"
+        }
+      ],
       "id": 3
+    },
+    {
+      "name": "Senior SDE",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 9600
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 6000
+        },
+        {
+          "name": "Food",
+          "value": "3500",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 6,
+          "amount": "3500"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "60000"
+        }
+      ],
+      "id": 4
     }
   ],
   "shifts": [
@@ -143,8 +248,150 @@
     {
       "name": "Shift 3",
       "start": "12:00",
-      "end": "20:00",
+      "end": "21:00",
       "id": 3
+    }
+  ],
+  "employees": [
+    {
+      "cAddress": {
+        "addr": "Block 1234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110023"
+      },
+      "shiftName": "Shift 3",
+      "firstName": "Prashant",
+      "lastName": "Jain",
+      "mobile": "9874569858",
+      "email": "pj@ja.com",
+      "pAddress": {
+        "addr": "Block 1234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110023"
+      },
+      "designationName": "Senior SDE",
+      "designationId": 4,
+      "shiftId": "2",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 9600
+        },
+        {
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "5000"
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 6000
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "60000"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "cAddress": {
+        "addr": "Block 234",
+        "city": "Lucknow",
+        "state": "Uttar Pradesh",
+        "pinCode": "110025"
+      },
+      "shiftName": "Shift 3",
+      "designationName": "Technical Manager",
+      "designationId": 1,
+      "firstName": "Rishabh",
+      "lastName": "Jain",
+      "mobile": "9874585896",
+      "email": "rish@ja.com",
+      "pAddress": {
+        "addr": "Block 234",
+        "city": "Lucknow",
+        "state": "Uttar Pradesh",
+        "pinCode": "110025"
+      },
+      "shiftId": "1",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 6400
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "5000"
+        },
+        {
+          "name": "Food",
+          "value": "3500",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 6,
+          "amount": "3500"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 4000
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "40000"
+        }
+      ],
+      "id": 2
     }
   ]
 }

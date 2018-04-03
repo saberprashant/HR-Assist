@@ -25,6 +25,7 @@
               <th>Component</th>
               <th>Value</th>
               <th>Amount</th>
+              <th>Type</th>
             </tr>
           </thead>
           <!--Table head-->
@@ -36,15 +37,14 @@
               <td>{{salary.name}}</td>
               <td ng-if=" salary.valueType === 'percentage' ">{{salary.value}} %</td>
               <td ng-if=" salary.valueType === 'custom' ">{{salary.value}} INR</td>
+              <td ng-if=" salary.name === 'basic' ">-</td>
               <td>{{salary.amount}}</td>
+              <td>{{salary.type}}</td>
             </tr>
-            
           </tbody>
-          <!--Table body-->
-
+          
         </table>
-        <!--Table-->
-        <h3>{{salary.type}}</h3>
+
       </div>
     </div>
   </div>

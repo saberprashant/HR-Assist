@@ -1,31 +1,67 @@
-<div class="modal-demo">
-    <div class="modal-header">
-      <h3 class="modal-title" id="modal-title" ng-if="!editMode">Add New Shift</h3>
-      <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{shift.name}}</h3>
-    </div>
-    <form>
-      <div class="container">
-      <div>
-        <h4>Name:</h4>
-        <input type="text" placeholder="like Shift 1, Shift 2,.." ng-model="shift.name">
-      </div>
-  
-      <div>
-        <h4>Start Time:</h4>
-        <input type="text" placeholder="like, 09:00" ng-model="shift.start">
-      </div>
-      <div>
-        <h4>End Time:</h4>
-        <input type="text" placeholder="like, 18:00" ng-model="shift.end">
-      </div>
-
-    </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-click="addShift()">Save</button>
-        <button class="btn btn-primary" type="submit" ng-if="editMode" ng-click="updateShift(shift)">Update</button>
-
-        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-      </div>
-    </form>
-  
+<div class="modal-body">
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-title" ng-if="!editMode">Add New Shift</h3>
+    <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{shift.name}}</h3>
   </div>
+  <form name="form" novalidate>
+    <div>
+      <h4>Name:</h4>
+      <input type="text" name="shiftName" class="form-control" placeholder="like Shift 1, Shift 2,.." ng-model="shift.name" ng-model="salary.name"
+        ng-minlength="2" ng-maxlength="15" ng-required="true">
+    </div>
+    <div uib-alert class="alert-danger" ng-messages="form.shiftName.$error" ng-if="form.shiftName.$invalid && 
+          form.shiftName.$touched">
+      <p ng-message="required">It is a required field</p>
+      <!-- <p ng-message="nameAvailable">Component Name already exists.</p> -->
+      <p ng-message="maxlength">Shift name too long.</p>
+      <p ng-message="minlength">Shift name too short.</p>
+
+    </div>
+
+    <div>
+      <h4>Start Time:</h4>
+      <input type="text" name="startTime" class="form-control" placeholder="like, 09:00" ng-model="shift.start" ng-minlength="5"
+        ng-maxlength="5" ng-required="true">
+    </div>
+    <div uib-alert class="alert-danger" ng-messages="form.startTime.$error" ng-if="form.startTime.$invalid && 
+          form.startTime.$touched">
+      <p ng-message="required">It is a required field</p>
+      <p ng-message="maxlength minlength">Make sure you follow this format - HH:MM</p>
+
+    </div>
+    <div>
+      <h4>End Time:</h4>
+      <input type="text" name="endTime" class="form-control" placeholder="like, 18:00" ng-model="shift.end" ng-minlength="5" ng-maxlength="5"
+        ng-required="true">
+    </div>
+    <div uib-alert class="alert-danger" ng-messages="form.endTime.$error" ng-if="form.endTime.$invalid && 
+          form.endTime.$touched">
+      <p ng-message="required">It is a required field</p>
+      <p ng-message="maxlength minlength">Make sure you follow this format - HH:MM</p>
+
+
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-disabled="form.$invalid" ng-click="addShift()">Save</button>
+
+      <button class="btn btn-primary" type="submit" ng-if="editMode" ng-disabled="form.$invalid" ng-click="updateShift(shift)">Update</button>
+
+      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+  </form>
+  <div uib-alert class="alert-success" ng-show="shiftSuccess">
+    Shift added successfully!
+  </div>
+  <div uib-alert class="alert-danger" ng-show="shiftFailed">
+    Shift was not added!
+  </div>
+
+  <div uib-alert class="alert-success" ng-show="shiftUpdateSuccess">
+    Shift updated successfully!
+  </div>
+  <div uib-alert class="alert-danger" ng-show="shiftUpdateFailed">
+    Shift was not updated!
+  </div>
+
+</div>

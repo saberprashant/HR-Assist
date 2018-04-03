@@ -31,7 +31,7 @@
     <!-- Sidebar Holder -->
     <nav id="sidebar">
       <div class="sidebar-header">
-        <h3>HR Manager</h3>
+        <h3>HR Assist</h3>
         <strong>HR</strong>
       </div>
 
@@ -55,33 +55,33 @@
           </ul>
         </li>
         <li>
-            <a ui-sref="view_shifts()">
-              Shifts
-            </a>
-          </li>
+          <a ui-sref="view_shifts()">
+            Shifts
+          </a>
+        </li>
         <li>
           <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false">
             Employees
           </a>
           <ul class="collapse list-unstyled" id="empSubmenu">
             <li>
-              <a href="#">Create</a>
+              <a ui-sref="create_emp()">Create</a>
             </li>
             <li>
-              <a href="#">View</a>
+              <a ui-sref="view_emp()">View</a>
             </li>
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a ui-sref="take_attendance()">
             Capture Attendance
           </a>
         </li>
         <li>
-        </a>
+          </a>
           <a href="#">
             Settings
-            </a>
+          </a>
         </li>
       </ul>
 
@@ -90,7 +90,7 @@
     <!-- Page Content Holder -->
     <div id="content" class="col-sm-9">
       <div ui-view> </div>
-      
+
 
       <!-- <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -149,7 +149,8 @@
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/app.js"></script>
 
-
+  <!-- directives -->
+  <script src="scripts/directives/salaryNameCheckDirec.js"></script>
 
   <!-- controllers -->
   <script src="scripts/controllers/main.js"></script>
@@ -160,13 +161,16 @@
   <script src="scripts/controllers/createDesigCtrl.js"></script>
   <script src="scripts/controllers/viewShiftsCtrl.js"></script>
   <script src="scripts/controllers/createShiftsCtrl.js"></script>
-
+  <script src="scripts/controllers/viewEmpCtrl.js"></script>
+  <script src="scripts/controllers/createEmpCtrl.js"></script>
+  <script src="scripts/controllers/takeAttendanceCtrl.js"></script>
 
   <!-- services -->
   <script src="scripts/services/SalaryServ.js"></script>
   <script src="scripts/services/DesignationServ.js"></script>
   <script src="scripts/services/ShiftsServ.js"></script>
-
+  <script src="scripts/services/EmployeeServ.js"></script>
+  <script src="scripts/services/AttendanceServ.js"></script>
 
   <!-- endbuild -->
 

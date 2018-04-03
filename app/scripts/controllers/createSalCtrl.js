@@ -4,13 +4,16 @@ angular.module("hrmsAngularjsApp")
 	.controller("createSalCtrl", ['SalaryServ', '$scope', '$timeout', '$state','$uibModalInstance','editMode','salaryToEdit',
 		function (SalaryServ, $scope, $timeout, $state, $uibModalInstance, editMode, salaryToEdit) {
 
-			$scope.editMode = editMode;
+			$scope.refName = ''					//for the reference of name
+			$scope.editMode = editMode;					//to check that user wants to edit salary comp. or not
 
 			if (editMode)
+			{
 				$scope.salary = salaryToEdit;						//for editing the salary comp.
+				$scope.refName = salaryToEdit.name;				//setting it to current edit name of salary
+			}	
 			else
 				$scope.salary = {};											//for creating a new salary component
-
 
 			$scope.saveSal = function () {						//to save a new salary component
 
