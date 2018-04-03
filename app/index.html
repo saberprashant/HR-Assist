@@ -78,11 +78,15 @@
           </a>
         </li>
         <li>
-          </a>
-          <a href="#">
+          <a ui-sref="view_settings()">
             Settings
           </a>
         </li>
+        <li>
+            <a ui-sref="reports()">
+              Reports
+            </a>
+          </li>
       </ul>
 
     </nav>
@@ -164,6 +168,10 @@
   <script src="scripts/controllers/viewEmpCtrl.js"></script>
   <script src="scripts/controllers/createEmpCtrl.js"></script>
   <script src="scripts/controllers/takeAttendanceCtrl.js"></script>
+  <script src="scripts/controllers/createSettingsCtrl.js"></script>
+  <script src="scripts/controllers/viewSettingsCtrl.js"></script>
+  <script src="scripts/controllers/viewReportsCtrl.js"></script>
+
 
   <!-- services -->
   <script src="scripts/services/SalaryServ.js"></script>
@@ -171,6 +179,7 @@
   <script src="scripts/services/ShiftsServ.js"></script>
   <script src="scripts/services/EmployeeServ.js"></script>
   <script src="scripts/services/AttendanceServ.js"></script>
+  <script src="scripts/services/SettingsServ.js"></script>
 
   <!-- endbuild -->
 

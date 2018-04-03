@@ -18,7 +18,7 @@
 
     </div>
 
-    <div>
+    <!-- <div>
       <h4>Start Time:</h4>
       <input type="text" name="startTime" class="form-control" placeholder="like, 09:00" ng-model="shift.start" ng-minlength="5"
         ng-maxlength="5" ng-required="true">
@@ -38,8 +38,25 @@
           form.endTime.$touched">
       <p ng-message="required">It is a required field</p>
       <p ng-message="maxlength minlength">Make sure you follow this format - HH:MM</p>
+    </div> -->
 
-
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <br>
+                <br>
+                <p>Select Shift Start Time</p>
+                <div uib-timepicker show-meridian="false" ng-model="shift.start" hour-step="1" minute-step="1"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <br>
+                <br>
+                <p>Select Shift Start Time</p>
+                <div uib-timepicker show-meridian="false" ng-model="shift.end" hour-step="1" minute-step="1"></div>
+            </div>
+        </div>
     </div>
 
     <div class="modal-footer">

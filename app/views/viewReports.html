@@ -1,0 +1,54 @@
+<div>
+
+    <h4>Select employee to view report</h4>
+
+    <input type="text" ng-model="empSelected" uib-typeahead="employee as employee.firstName + ' ' + employee.lastName + ' - ' + employee.designationName for employee in employees | filter:$viewValue | limitTo:8"
+        class="form-control">
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{desig.name}}</h3>
+        </div>
+        <div class="panel-body">
+          <!-- <h3>Designation Description : </h3> -->
+  
+          <h4>Salary structure</h4>
+  
+          <!--Table-->
+          <table class="table">
+  
+            <!--Table head-->
+            <thead class="table-success">
+              <tr class="text-white table-warning">
+                <th>#</th>
+                <th>Component</th>
+                <th>Value</th>
+                <th>Amount</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <!--Table head-->
+  
+            <!--Table body-->
+            <tbody>
+              <tr ng-repeat="(index,salary) in desig.salaryStructure">
+                <th scope="row">{{index+1}}</th>
+                <td>{{salary.name}}</td>
+                <td ng-if=" salary.valueType === 'percentage' ">{{salary.value}} %</td>
+                <td ng-if=" salary.valueType === 'custom' ">{{salary.value}} INR</td>
+                <td ng-if=" salary.name === 'basic' ">-</td>
+                <td>{{salary.amount}}</td>
+                <td>{{salary.type}}</td>
+              </tr>
+            </tbody>
+            
+          </table>
+  
+        </div>
+      </div>
+    </div>
+  </div>

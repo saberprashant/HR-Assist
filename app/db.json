@@ -48,6 +48,13 @@
       "valueType": "percentage",
       "type": "deduction",
       "id": 8
+    },
+    {
+      "name": "Parking",
+      "value": "1000",
+      "valueType": "custom",
+      "type": "allowance",
+      "id": 9
     }
   ],
   "designations": [
@@ -230,120 +237,9 @@
         }
       ],
       "id": 4
-    }
-  ],
-  "shifts": [
-    {
-      "name": "Shift 1",
-      "start": "08:00",
-      "end": "15:00",
-      "id": 1
     },
     {
-      "name": "Shift 2",
-      "start": "10:00",
-      "end": "18:00",
-      "id": 2
-    },
-    {
-      "name": "Shift 3",
-      "start": "12:00",
-      "end": "21:00",
-      "id": 3
-    }
-  ],
-  "employees": [
-    {
-      "cAddress": {
-        "addr": "Block 1234",
-        "city": "Delhi",
-        "state": "Delhi",
-        "pinCode": "110023"
-      },
-      "shiftName": "Shift 3",
-      "firstName": "Prashant",
-      "lastName": "Jain",
-      "mobile": "9874569858",
-      "email": "pj@ja.com",
-      "pAddress": {
-        "addr": "Block 1234",
-        "city": "Delhi",
-        "state": "Delhi",
-        "pinCode": "110023"
-      },
-      "designationName": "Senior SDE",
-      "designationId": 4,
-      "shiftId": "2",
-      "salaryStructure": [
-        {
-          "name": "HRA",
-          "value": "16",
-          "valueType": "percentage",
-          "type": "allowance",
-          "id": 1,
-          "amount": 9600
-        },
-        {
-          "name": "TA",
-          "value": "5000",
-          "valueType": "custom",
-          "type": "allowance",
-          "id": 3,
-          "amount": "5000"
-        },
-        {
-          "name": "Internet",
-          "value": "1000",
-          "valueType": "custom",
-          "type": "allowance",
-          "id": 4,
-          "amount": "1000"
-        },
-        {
-          "type": "allowance",
-          "valueType": "custom",
-          "value": "10000",
-          "name": "Misc",
-          "id": 5,
-          "amount": "10000"
-        },
-        {
-          "name": "PF",
-          "value": "10",
-          "valueType": "percentage",
-          "type": "deduction",
-          "id": 8,
-          "amount": 6000
-        },
-        {
-          "name": "basic",
-          "type": "allowance",
-          "amount": "60000"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "cAddress": {
-        "addr": "Block 234",
-        "city": "Lucknow",
-        "state": "Uttar Pradesh",
-        "pinCode": "110025"
-      },
-      "shiftName": "Shift 3",
-      "designationName": "Technical Manager",
-      "designationId": 1,
-      "firstName": "Rishabh",
-      "lastName": "Jain",
-      "mobile": "9874585896",
-      "email": "rish@ja.com",
-      "pAddress": {
-        "addr": "Block 234",
-        "city": "Lucknow",
-        "state": "Uttar Pradesh",
-        "pinCode": "110025"
-      },
-      "shiftId": "1",
+      "name": "iOS Developer",
       "salaryStructure": [
         {
           "name": "HRA",
@@ -354,6 +250,14 @@
           "amount": 6400
         },
         {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
           "name": "Internet",
           "value": "1000",
           "valueType": "custom",
@@ -362,27 +266,19 @@
           "amount": "1000"
         },
         {
-          "name": "TA",
-          "value": "5000",
+          "name": "Parking",
+          "value": "1000",
           "valueType": "custom",
           "type": "allowance",
-          "id": 3,
-          "amount": "5000"
+          "id": 9,
+          "amount": "1000"
         },
         {
-          "name": "Food",
-          "value": "3500",
-          "valueType": "custom",
-          "type": "deduction",
-          "id": 6,
-          "amount": "3500"
-        },
-        {
-          "name": "PF",
+          "name": "DA",
           "value": "10",
           "valueType": "percentage",
-          "type": "deduction",
-          "id": 8,
+          "type": "allowance",
+          "id": 7,
           "amount": 4000
         },
         {
@@ -391,7 +287,90 @@
           "amount": "40000"
         }
       ],
+      "id": 5
+    }
+  ],
+  "shifts": [
+    {
+      "start": "2018-04-03T02:30:59.904Z",
+      "end": "2018-04-03T11:30:59.904Z",
+      "name": "Shift 1",
+      "id": 1
+    },
+    {
+      "start": "2018-04-03T04:30:29.926Z",
+      "end": "2018-04-03T13:30:29.926Z",
+      "name": "Shift 2",
       "id": 2
+    },
+    {
+      "start": "2018-04-03T06:30:32.579Z",
+      "end": "2018-04-03T15:30:32.579Z",
+      "name": "Shift 3",
+      "id": 3
+    }
+  ],
+  "employees": [],
+  "attendances": [
+    {
+      "attendanceDate": "2018-04-03T15:53:15.541Z",
+      "empId": 4,
+      "empName": "Janit",
+      "checkInTime": "2018-04-03T03:30:15.541Z",
+      "checkOutTime": "2018-04-03T16:30:15.541Z",
+      "id": 1
+    },
+    {
+      "attendanceDate": "2018-04-03T16:13:53.905Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-03T06:30:53.905Z",
+      "checkOutTime": "2018-04-03T16:30:53.905Z",
+      "id": 2
+    },
+    {
+      "attendanceDate": "2018-04-02T16:14:22.472Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-03T03:30:22.472Z",
+      "checkOutTime": "2018-04-03T14:30:22.472Z",
+      "id": 3
+    },
+    {
+      "attendanceDate": "2018-04-03T16:14:50.575Z",
+      "empId": 3,
+      "empName": "Ankit",
+      "checkInTime": "2018-04-03T05:30:50.575Z",
+      "checkOutTime": "2018-04-03T16:30:50.575Z",
+      "id": 4
+    },
+    {
+      "attendanceDate": "2018-04-02T16:15:20.560Z",
+      "empId": 3,
+      "empName": "Ankit",
+      "checkInTime": "2018-04-03T03:30:20.560Z",
+      "checkOutTime": "2018-04-03T14:30:20.560Z",
+      "id": 5
+    }
+  ],
+  "settings": [
+    {
+      "name": "Setting 1",
+      "timeVal": "60",
+      "deduction": "100",
+      "id": 1
+    },
+    {
+      "name": "Setting 2",
+      "timeVal": "120",
+      "deduction": "250",
+      "id": 2
+    },
+    {
+      "name": "Setting 3",
+      "timeVal": "180",
+      "deduction": "400",
+      "id": 3
     }
   ]
 }

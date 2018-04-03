@@ -1,0 +1,69 @@
+<div class="modal-body">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-title" ng-if="!editMode">New Setting for Shift</h3>
+      <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{setting.name}}</h3>
+    </div>
+  
+    <div >
+    <form name="form" novalidate>
+        <div>
+          <h4>Name : </h4>
+          <input class="form-control" type="text" name="settingName" placeholder="like setting 1, 2.." 
+           ng-model="setting.name" ng-minlength="2" ng-maxlength="15" 
+          ng-required="true">
+        </div>
+        <div uib-alert class="alert-danger" ng-messages="form.settingName.$error" ng-if="form.settingName.$invalid && 
+            form.settingName.$touched">
+          <p ng-message="required">It is a required field</p>
+          <p ng-message="maxlength">Component name too long.</p>
+          <p ng-message="minlength">Component name too short.</p>
+  
+        </div>
+
+        <div>
+          <h4>Time in minutes : </h4>
+          <input class="form-control" type="text" name="settingTime" placeholder="like, 60, 120"
+           ng-model="setting.timeVal"  ng-maxlength="3" ng-required="true" ng-pattern="/^[0-9]*$/">
+        </div>
+        <div uib-alert class="alert-danger" ng-messages="form.settingTime.$error" ng-if="form.settingTime.$invalid && 
+            form.settingTime.$touched">
+          <p ng-message="required">It is a required field</p>
+          <p ng-message="pattern">Enter a valid time in minutes like 60.</p>
+          <p ng-message="maxlength">This should be under 3 values.</p>
+        </div>
+
+        <div>
+            <h4>Deduction : </h4>
+            <input class="form-control" type="text" name="settingDeduc" placeholder="like, 200, 400"
+             ng-model="setting.deduction"  ng-maxlength="4" ng-required="true" ng-pattern="/^[0-9]*$/">
+          </div>
+          <div uib-alert class="alert-danger" ng-messages="form.settingDeduc.$error" ng-if="form.settingDeduc.$invalid && 
+              form.settingDeduc.$touched">
+            <p ng-message="required">It is a required field</p>
+            <p ng-message="pattern">Enter a valid time in minutes like 60.</p>
+            <p ng-message="maxlength">This should be under 4 values.</p>
+          </div>
+  
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-disabled="form.$invalid" ng-click="saveSetting()">Save</button>
+        <button class="btn btn-primary" type="submit" ng-if="editMode" ng-disabled="form.$invalid" ng-click="updateSetting(setting)">Update</button>
+  
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+
+    </form>
+    <div uib-alert class="alert-success" ng-show="settingSuccess">
+      Setting added successfully!
+    </div>
+    <div uib-alert class="alert-danger" ng-show="settingFailed">
+      Setting was not added!
+    </div>
+  
+    <div uib-alert class="alert-success" ng-show="settingUpdateSuccess">
+      Setting updated successfully!
+    </div>
+    <div uib-alert class="alert-danger" ng-show="settingUpdateFailed">
+      Setting was not updated!
+    </div>
+  </div>
+  </div>

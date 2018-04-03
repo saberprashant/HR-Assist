@@ -28,7 +28,7 @@ angular
     $stateProvider
       .state('otherwise', {
         url: '*path',
-        template: '<strong>Please, select from menu!</strong>',
+        templateUrl: 'views/welcome.html',
       })
       .state('home', {
         url: '/',
@@ -45,19 +45,16 @@ angular
         url: '/create_desig',
         templateUrl: 'views/createDesig.html',
         controller: 'createDesigCtrl',
-        // controllerAs: 'salary'
       })
       .state('view_desig', {
         url: '/view_desig',
         templateUrl: 'views/viewDesig.html',
         controller: 'viewDesigCtrl',
-        // controllerAs: 'salary'
       })
       .state('view_shifts', {
         url: '/view_shifts',
         templateUrl: 'views/viewShifts.html',
         controller: 'viewShiftsCtrl',
-        // controllerAs: 'salary'
       })
       .state('create_emp', {
         url: '/create_emp',
@@ -81,8 +78,21 @@ angular
         url: '/take_attendance',
         templateUrl: 'views/takeAttendance.html',
         controller: 'takeAttendanceCtrl',
-        // controllerAs: 'salary'
       })
-
+      .state('create_settings', {
+        url: '/create_settings',
+        templateUrl: 'views/createSettings.html',
+        controller: 'createSettingsCtrl',
+      })
+      .state('view_settings', {
+        url: '/view_settings',
+        templateUrl: 'views/viewSettings.html',
+        controller: 'viewSettingsCtrl',
+      })
+      .state('reports', {
+        url: '/reports',
+        templateUrl: 'views/viewReports.html',
+        controller: 'viewReportsCtrl',
+      })
 
   });

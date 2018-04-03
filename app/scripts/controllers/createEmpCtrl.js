@@ -147,6 +147,8 @@ angular.module("hrmsAngularjsApp")
       //function to add a new employee in db
       $scope.addEmployee = function () {
         $scope.emp.salaryStructure = $scope.selectedSalaries;
+        $scope.emp.totalSal = $scope.total;
+        $scope.emp.shiftName = $scope.shifts[$scope.emp.shiftId].name;
 
         if ($scope.emp.cAddress.sameAsPermanent) {
           $scope.emp.cAddress = $scope.emp.pAddress;

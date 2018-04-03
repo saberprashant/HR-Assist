@@ -1,0 +1,25 @@
+<div>
+  <br>
+  <button style="float:right;" type="button" class="btn btn-success" ng-click="addSettingWindow()">+ New Setting</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!-- print all setting components -->
+  <div ng-repeat="setting in settings">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 style="float:left" class="panel-title">{{setting.name}}</h3>
+        <div style="float:right">
+          <span class="glyphicon glyphicon-pencil" ng-click="editSettingWindow(setting)"></span>&nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-trash" ng-click="remove(setting.id)"></span>
+        </div>
+        <br>
+      </div>
+      <div class="panel-body">
+        <h3>Time : {{setting.timeVal}} min.</h3>
+        <h3>Deduction : {{setting.deduction}} INR</h3>
+      </div>
+    </div>
+  </div>
+</div>

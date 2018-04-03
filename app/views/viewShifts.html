@@ -17,8 +17,8 @@
         <br>  
       </div>
       <div class="panel-body">
-        <h5>Start Time : {{shift.start}}</h5>
-        <h5>End Time : {{shift.end}}</h5>
+        <h5>Start Time : {{shift.start | date: 'shortTime'}}</h5>
+        <h5>End Time : {{shift.end | date: 'shortTime'}}</h5>
       </div>
     </div>
   </div>

@@ -1,60 +1,54 @@
 <h4>Select employee</h4>
 
-<input type="text" ng-model="empSelected" uib-typeahead="employee as employee.firstName + ' ' + employee.lastName for employee in employees | filter:$viewValue | limitTo:8"
+<input type="text" ng-model="empSelected" uib-typeahead="employee as employee.firstName + ' ' + employee.lastName + ' - ' + employee.designationName for employee in employees | filter:$viewValue | limitTo:8"
     class="form-control">
 
 <br>
 <div ng-if="empSelected!=undefined" class="">
-    <table class="table table-striped">
-        <tr>
-            <th>Employee Name </th>
-            <td>{{empSelected.firstName + " " + empSelected.lastName }}</td>
-        </tr>
-        <tr>
-            <th>
-                Employee ID
-            </th>
-            <td>
-                {{empSelected.id}}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Email
-            </th>
-            <td>
-                {{empSelected.email}}
-            </td>
-        </tr>
+
+    <table class="table">
+        <thead class="table-info">
+            <tr class="text-white">
+                <th>Employee Name</th>
+                <th>ID</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{empSelected.firstName + " " + empSelected.lastName}}</td>
+                <td>{{empSelected.id}}</td>
+                <td>{{empSelected.email}}</td>
+            </tr>
+        </tbody>
     </table>
 
 
     <br> Select Date:
     <br>
     <br>
-    <div uib-datepicker ng-model="$parent.attendanceDate"></div>
+    <div uib-datepicker ng-model="$parent.empAttendance.attendanceDate"></div>
 
     <br>
     <br>
-    <div class="btn-group text-center">
-        <label class="btn btn-success" uib-btn-radio="'checkIn'" ng-model="$parent.attendanceType">Check In</label>
-        <label class="btn btn-danger" uib-btn-radio="'checkOut'" ng-model="$parent.attendanceType">Check Out</label>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <br>
+                <br>
+                <p>Select Check In Time</p>
+                <div uib-timepicker show-meridian="false" ng-model="$parent.checkInTime" hour-step="1" minute-step="1"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <br>
+                <br>
+                <p>Select Check Out Time</p>
+                <div uib-timepicker show-meridian="false" ng-model="$parent.checkOutTime" hour-step="1" minute-step="1"></div>
+            </div>
+        </div>
     </div>
-
-    <div ng-show="attendanceType=='checkIn'">
-        <br>
-        <br>
-        <p>Select Check In Time</p>
-        <div uib-timepicker show-meridian="true" ng-model="$parent.checkInTime" hour-step="1" minute-step="1"></div>
-    </div>
-
-    <div ng-show="attendanceType=='checkOut'">
-        <br>
-        <br>
-        <p>Select Check Out Time</p>
-        <div uib-timepicker show-meridian="true" ng-model="$parent.checkOutTime" hour-step="1" minute-step="1"></div>
-    </div>
-
     <br>
     <br>
     <button class="btn btn-success" ng-click="takeAttendance()">Save</button>
