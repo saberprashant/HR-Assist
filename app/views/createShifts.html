@@ -1,10 +1,12 @@
+
+
 <div class="modal-body">
-  <div class="modal-header">
+  <div class="modal-headerShift">
     <h3 class="modal-title" id="modal-title" ng-if="!editMode">Add New Shift</h3>
     <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{shift.name}}</h3>
   </div>
-  <form name="form" novalidate>
-    <div>
+  <form name="form" class="form" novalidate>
+    <div class="nameShift">
       <h4>Name:</h4>
       <input type="text" name="shiftName" class="form-control" placeholder="like Shift 1, Shift 2,.." ng-model="shift.name" ng-model="salary.name"
         ng-minlength="2" ng-maxlength="15" ng-required="true">
@@ -40,8 +42,8 @@
       <p ng-message="maxlength minlength">Make sure you follow this format - HH:MM</p>
     </div> -->
 
-    <div class="row">
-        <div class="col-md-6">
+    <div class="rowShift" >
+        <div class="col-md-6" style= >
             <div>
                 <br>
                 <br>
@@ -59,7 +61,7 @@
         </div>
     </div>
 
-    <div class="modal-footer">
+    <div class="modal-footerShift">
       <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-disabled="form.$invalid" ng-click="addShift()">Save</button>
 
       <button class="btn btn-primary" type="submit" ng-if="editMode" ng-disabled="form.$invalid" ng-click="updateShift(shift)">Update</button>

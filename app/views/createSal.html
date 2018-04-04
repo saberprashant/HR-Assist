@@ -4,13 +4,12 @@
     <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{salary.name}}</h3>
   </div>
 
-  <div >
-  <form name="form" novalidate>
+  <div>
+    <form name="form" novalidate>
       <div>
         <h4>Name : </h4>
-        <input class="form-control" type="text" name="salName" placeholder="like HRA, DA, TA............." 
-        salary-name-check-direc oldname="{{refName}}" ng-model="salary.name" ng-minlength="2" ng-maxlength="15" 
-        ng-required="true">
+        <input class="form-control" type="text" name="salName" placeholder="like HRA, DA, TA............." salary-name-check-direc
+          oldname="{{refName}}" ng-model="salary.name" ng-minlength="2" ng-maxlength="15" ng-required="true">
       </div>
       <div uib-alert class="alert-danger" ng-messages="form.salName.$error" ng-if="form.salName.$invalid && 
           form.salName.$touched">
@@ -24,8 +23,19 @@
       Error:{{form.salName.$error}} -->
       <div>
         <h4>Value : </h4>
-        <input class="form-control" type="text" name="salValue" placeholder="like, 15 or 25000"
-         ng-model="salary.value"  ng-maxlength="6" ng-required="true" ng-pattern="/^[0-9]*$/">
+        <div class="row">
+          <div class="col-md-6">
+            <input style="float:left" class="form-control" type="text" name="salValue" placeholder="like, 15 or 25000" ng-model="salary.value"
+              ng-maxlength="6" ng-required="true" ng-pattern="/^[0-9]*$/">
+          </div>
+          <div class="col-md-6">
+            <div class="btn-group">
+              <label class="btn btn-primary" ng-model="salary.valueType" uib-btn-radio="'percentage'" ng-required="true">%</label>
+              <label class="btn btn-primary" ng-model="salary.valueType" uib-btn-radio="'custom'" ng-required="true">INR</label>
+            </div>
+          </div>
+
+        </div>
       </div>
       <div uib-alert class="alert-danger" ng-messages="form.salValue.$error" ng-if="form.salValue.$invalid && 
           form.salValue.$touched">
@@ -34,42 +44,49 @@
         <p ng-message="pattern">Enter a valid number</p>
         <p ng-message="maxlength">This should be under 6 values.</p>
       </div>
+
+
+      <!-- <br>
+      <h4 style="float: left">Value Type : </h4> &nbsp;&nbsp;&nbsp;&nbsp;
       <div>
-        <h4>Value Type : </h4>
         <input type="radio" name="salValueType" ng-model="salary.valueType" value="percentage" ng-required="true">%
         <input type="radio" name="salValueType" ng-model="salary.valueType" value="custom" ng-required="true">INR
-      </div>
+      </div> -->
 
+      <br>
       <div>
-        <h4>Type : </h4>
-        <input type="radio" name="salType" ng-model="salary.type" value="allowance" ng-required="true">Allowance
-        <input type="radio" name="salType" ng-model="salary.type" value="deduction" ng-required="true">Deduction
+        <h4 style="float:left">Type : </h4> &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="btn-group">
+          <label class="btn btn-primary" ng-model="salary.type" uib-btn-radio="'allowance'" ng-required="true">Allowance</label>
+          <label class="btn btn-primary" ng-model="salary.type" uib-btn-radio="'deduction'" ng-required="true">Deduction</label>
+        </div>
       </div>
+      <br>
 
-    <div class="modal-footer">
-      <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-disabled="form.$invalid" ng-click="saveSal()">Save</button>
-      <button class="btn btn-primary" type="submit" ng-if="editMode" ng-disabled="form.$invalid" ng-click="updateSal(salary)">Update</button>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="submit" ng-if="!editMode" ng-disabled="form.$invalid" ng-click="saveSal()">Save</button>
+        <button class="btn btn-primary" type="submit" ng-if="editMode" ng-disabled="form.$invalid" ng-click="updateSal(salary)">Update</button>
 
-      <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+      </div>
+      <div uib-alert class="alert-danger" ng-messages="form.componentName.$error" ng-if="form.componentName.$invalid && form.componentName.$touched">
+        <p ng-message="required">It is a required field</p>
+        <p ng-message="nameAvailable">Component Name already exists.</p>
+        <p ng-message="maxlength">Component name too long.</p>
+      </div>
+    </form>
+    <div uib-alert class="alert-success" ng-show="salarySuccess">
+      Salary Component added successfully!
     </div>
-    <div uib-alert class="alert-danger" ng-messages="form.componentName.$error" ng-if="form.componentName.$invalid && form.componentName.$touched">
-      <p ng-message="required">It is a required field</p>
-      <p ng-message="nameAvailable">Component Name already exists.</p>
-      <p ng-message="maxlength">Component name too long.</p>
+    <div uib-alert class="alert-danger" ng-show="salaryFailed">
+      Salary Component was not added!
     </div>
-  </form>
-  <div uib-alert class="alert-success" ng-show="salarySuccess">
-    Salary Component added successfully!
-  </div>
-  <div uib-alert class="alert-danger" ng-show="salaryFailed">
-    Salary Component was not added!
-  </div>
 
-  <div uib-alert class="alert-success" ng-show="salaryUpdateSuccess">
-    Salary Component updated successfully!
+    <div uib-alert class="alert-success" ng-show="salaryUpdateSuccess">
+      Salary Component updated successfully!
+    </div>
+    <div uib-alert class="alert-danger" ng-show="salaryUpdateFailed">
+      Salary Component was not updated!
+    </div>
   </div>
-  <div uib-alert class="alert-danger" ng-show="salaryUpdateFailed">
-    Salary Component was not updated!
-  </div>
-</div>
 </div>

@@ -1,0 +1,21 @@
+table.uib-timepicker{
+  display: inline-block;
+}
+
+.modal-headerShift {
+  text-align: center;
+}
+
+.rowShift {
+  text-align: center;
+}
+
+.modal-footerShift {
+  text-align: center;
+}
+
+.nameShift {
+  margin-left: 10%;
+  width: 80%;
+}
+

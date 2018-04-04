@@ -1,15 +1,16 @@
 <div >
   <br>
-  <button style="float:right;" type="button" class="btn btn-success" ng-click="addSalWindow()">+ New Salary Component</button>
+  <button style="float:right;" type="button" class="btn btn-info" ng-click="addSalWindow()">+ New Salary Component</button>
   <br>
   <br>
   <br>
   <br>
   <!-- print all salary components -->
-  <div ng-repeat="salary in salaries">
-    <div class="panel panel-info">
+  <div class="row">
+  <div ng-repeat="salary in salaries" class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+    <div class="panel" ng-class="{'panel-success': salary.type== 'allowance' , 'panel-danger':salary.type== 'deduction' }">
       <div class="panel-heading">
-        <h3 style="float:left" class="panel-title">{{salary.name}}</h3>
+        <h4 style="float:left" class="panel-title">{{salary.name}}</h4>
         <div style="float:right">
             <span class="glyphicon glyphicon-pencil" ng-click="editSalWindow(salary)"></span>&nbsp;&nbsp;&nbsp;
           <span class="glyphicon glyphicon-trash" ng-click="remove(salary.id)"></span>
@@ -17,10 +18,11 @@
         <br>
       </div>
       <div class="panel-body">
-        <h3 ng-if=" salary.valueType === 'percentage' ">Value : {{salary.value}} %</h3>
-        <h3 ng-if=" salary.valueType === 'custom' ">Value : {{salary.value}} INR</h3>
-        <h3>Type : {{salary.type}}</h3>
+        <h4 ng-if=" salary.valueType === 'percentage' ">Value : {{salary.value}} %</h4>
+        <h4 ng-if=" salary.valueType === 'custom' ">Value : {{salary.value}} INR</h4>
+        <h4>Type : {{salary.type}}</h4>
       </div>
     </div>
   </div>
+</div>
 </div>

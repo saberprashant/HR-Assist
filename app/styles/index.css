@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: rgb(248, 245, 230);
 }
 
 p {
@@ -60,15 +60,18 @@ i, span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: maroon;
+    background: rgb(115, 34, 190);
     color: #fff;
     transition: all 0.3s;
+    position: static;
+    z-index: 2;
 }
 
 #sidebar.active {
     min-width: 80px;
     max-width: 80px;
     text-align: center;
+    background: lightcoral;
 }
 
 #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
@@ -112,7 +115,7 @@ i, span {
 #sidebar .sidebar-header {
     padding: 25px;
     padding-left: 60px;
-    background: maroon;
+    background: rgb(115, 34, 190);
 }
 
     #sidebar .sidebar-header strong {
@@ -122,7 +125,7 @@ i, span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid maroon;
+    border-bottom: 1px solid rgb(115, 34, 190);
 }
 
 #sidebar ul li a {
@@ -131,7 +134,7 @@ i, span {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: maroon;
+    color: rgb(115, 34, 190);
     background: #fff;
 }
 #sidebar ul li a i {
@@ -185,7 +188,7 @@ a.download {
 }
 
 a.article, a.article:hover {
-    background: maroon !important;
+    background: rgb(115, 34, 190) !important;
     color: #fff !important;
 }
 
