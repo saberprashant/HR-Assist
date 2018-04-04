@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewReportsCtrl", ['ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state',
-    function (ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state) {
+  .controller("viewReportsCtrl", ['OvertimeServ','ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state',
+    function (OvertimeServ, ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state) {
 
       $scope.showReport = false;
       //get all emp data

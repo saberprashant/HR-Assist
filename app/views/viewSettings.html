@@ -1,25 +1,70 @@
 <div>
   <br>
-  <button style="float:right;" type="button" class="btn btn-success" ng-click="addSettingWindow()">+ New Setting</button>
+  <button style="float:right;" type="button" class="btn btn-info" ng-click="addSettingWindow()">+ New Setting</button>
   <br>
   <br>
   <br>
   <br>
   <!-- print all setting components -->
-  <div ng-repeat="setting in settings">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 style="float:left" class="panel-title">{{setting.name}}</h3>
-        <div style="float:right">
-          <span class="glyphicon glyphicon-pencil" ng-click="editSettingWindow(setting)"></span>&nbsp;&nbsp;&nbsp;
-          <span class="glyphicon glyphicon-trash" ng-click="remove(setting.id)"></span>
+  <div class="row">
+    <div ng-repeat="setting in settings" class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+      <div class="panel" ng-class="{'panel-success': setting.name == 'Overtime' , 'panel-danger': setting.name != 'Overtime' }">
+        <div class="panel-heading">
+          <h3 style="float:left" class="panel-title">{{setting.name}}</h3>
+          <div style="float:right">
+            <span class="glyphicon glyphicon-pencil" ng-click="editSettingWindow(setting)"></span>&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-trash" ng-click="remove(setting.id)"></span>
+          </div>
+          <br>
         </div>
-        <br>
-      </div>
-      <div class="panel-body">
-        <h3>Time : {{setting.timeVal}} min.</h3>
-        <h3>Deduction : {{setting.deduction}} INR</h3>
+        <div class="panel-body">
+          <h4>Time : {{setting.timeVal}} min.</h4>
+          <h4 ng-if="!(setting.name == 'Overtime')">Deduction : {{setting.deduction}} INR</h4>
+          <h4 ng-if="(setting.name == 'Overtime')">Allowance : {{setting.deduction}} INR</h4>
+        </div>
       </div>
     </div>
   </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 style="float:left" class="panel-title">Overtime (per hour)</h3>
+      <span style="float:right" class="glyphicon glyphicon-pencil" ng-click="editOvertime()"></span>&nbsp;
+      <br>
+    </div>
+    <div class="panel-body">
+      <form name="overtimeForm" ng-if="showEditOvertime">
+        <div class="row">
+          <div class="col-md-2">
+            <h4>Allowance : </h4>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control" type="text" name="settingOvertime" placeholder="like, 200, 400" ng-model="overtime.allowance"
+              ng-maxlength="4" ng-required="true" ng-pattern="/^[0-9]*$/">
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-primary" type="submit" ng-disabled="overtimeForm.$invalid" ng-click="saveOvertime()">Save</button>
+            <button class="btn btn-warning" type="button" ng-click="editOvertimeCancel()">Cancel</button>
+          </div>
+        </div>
+        <div uib-alert class="alert-danger" ng-messages="overtimeForm.settingOvertime.$error" ng-if="overtimeForm.settingOvertime.$invalid && 
+              overtimeForm.settingOvertime.$touched">
+          <p ng-message="required">It is a required field</p>
+          <p ng-message="pattern">Enter a valid number.</p>
+          <p ng-message="maxlength">This should be under 4 values.</p>
+        </div>
+      </form>
+      <h4 ng-if="!showEditOvertime">Allowance : {{overtimeAllowance}} INR</h4>
+    </div>
+  </div>
+
+
+
 </div>

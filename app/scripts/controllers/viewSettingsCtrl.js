@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewSettingsCtrl", ['$document', 'SettingsServ', '$scope', '$timeout', '$state', '$uibModal',
-    function ($document, SettingsServ, $scope, $timeout, $state, $uibModal) {
+  .controller("viewSettingsCtrl", ['$document','OvertimeServ', 'SettingsServ', '$scope', '$timeout', '$state', '$uibModal',
+    function ($document,OvertimeServ, SettingsServ, $scope, $timeout, $state, $uibModal) {
 
 
 
@@ -10,6 +10,14 @@ angular.module("hrmsAngularjsApp")
         .then(function (response) {
           $scope.settings = response.data;
         });
+
+      OvertimeServ.getOvertime()
+      .then(function(response) {
+        $scope.overtime = response.data;
+        $scope.overtimeAllowance = $scope.overtime.allowance;
+      })
+
+      $scope.showEditOvertime = false;
 
 
       //to add new setting component
@@ -73,6 +81,22 @@ angular.module("hrmsAngularjsApp")
 
       };
 
+      $scope.editOvertime = function() {
+        $scope.showEditOvertime = true;
+      }
+
+      $scope.saveOvertime = function() {
+        $scope.overtime.name = "Overtime";
+        OvertimeServ.editOvertime($scope.overtime)
+        .then(function(response) {
+          $scope.showEditOvertime = false;
+          $state.go("view_settings",{},{'reload':true});
+        });
+      }
+
+      $scope.editOvertimeCancel = function() {
+        $scope.showEditOvertime = false;
+      }
 
 
 

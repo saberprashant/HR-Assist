@@ -719,28 +719,26 @@
   ],
   "settings": [
     {
-      "name": "Setting 1",
+      "name": "Late 1",
       "timeVal": "60",
-      "deduction": "100",
-      "id": 1
+      "deduction": "150",
+      "id": 5
     },
     {
-      "name": "Setting 2",
+      "name": "Late 2",
       "timeVal": "120",
       "deduction": "250",
-      "id": 2
+      "id": 6
     },
     {
-      "name": "Setting 3",
+      "name": "Late 3",
       "timeVal": "180",
       "deduction": "400",
-      "id": 3
-    },
-    {
-      "name": "Overtime",
-      "timeVal": "60",
-      "deduction": "100",
-      "id": 4
+      "id": 7
     }
-  ]
+  ],
+  "overtime": {
+    "name": "Overtime",
+    "allowance": "200"
+  }
 }

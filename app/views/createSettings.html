@@ -1,6 +1,6 @@
 <div class="modal-body">
     <div class="modal-header">
-      <h3 class="modal-title" id="modal-title" ng-if="!editMode">New Setting for Shift</h3>
+      <h3 class="modal-title" id="modal-title" ng-if="!editMode">New Deduction for Shift</h3>
       <h3 class="modal-title" id="modal-title" ng-if="editMode">Edit - {{setting.name}}</h3>
     </div>
   
@@ -40,7 +40,7 @@
           <div uib-alert class="alert-danger" ng-messages="form.settingDeduc.$error" ng-if="form.settingDeduc.$invalid && 
               form.settingDeduc.$touched">
             <p ng-message="required">It is a required field</p>
-            <p ng-message="pattern">Enter a valid time in minutes like 60.</p>
+            <p ng-message="pattern">Enter a valid number.</p>
             <p ng-message="maxlength">This should be under 4 values.</p>
           </div>
   
