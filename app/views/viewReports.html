@@ -1,6 +1,6 @@
 <div>
 
-  <h4>Select employee to view report</h4>
+  <h4>Enter employee name to view report</h4>
 
   <input type="text" ng-model="empSelected" uib-typeahead="employee as employee.firstName + ' ' + employee.lastName + ' - ' + employee.designationName for employee in employees | filter:$viewValue | limitTo:8"
     class="form-control">

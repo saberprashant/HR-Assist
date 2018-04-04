@@ -55,6 +55,13 @@
       "valueType": "custom",
       "type": "allowance",
       "id": 9
+    },
+    {
+      "name": "Medical",
+      "value": "5000",
+      "valueType": "custom",
+      "type": "deduction",
+      "id": 10
     }
   ],
   "designations": [

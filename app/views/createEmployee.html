@@ -1,9 +1,8 @@
 <div class="createDesignation">
-	<h2>{{formHeading}}</h2>
-
-
+	<h2 class="createEmpCenter">{{formHeading}}</h2>
+<br>
 	<form name="createEmployee" novalidate>
-		First Name:
+		First Name
 		<input type="text" class="form-control" ng-model="emp.firstName" ng-required="true" name="firstName" ng-pattern="/^[A-Za-z]+$/"
 		 ng-minlength="2" ng-maxlength="30">
 		<div uib-alert class="alert-danger" ng-messages="createEmployee.firstName.$error" ng-if="createEmployee.firstName.$invalid && createEmployee.firstName.$touched">
@@ -12,7 +11,8 @@
 			<p ng-message="maxlength">Cannot exceed 30 characters.</p>
 			<p ng-message="required">It is a required field</p>
 		</div>
-		Last Name:
+		<br>
+		Last Name
 		<input type="text" class="form-control" ng-model="emp.lastName" ng-required="true" ng-pattern="/^[A-Za-z]+$/" ng-minlength="2"
 		 ng-maxlength="30" name="lastName">
 		<div uib-alert class="alert-danger" ng-messages="createEmployee.lastName.$error" ng-if="createEmployee.lastName.$invalid && createEmployee.lastName.$touched">
@@ -21,13 +21,15 @@
 			<p ng-message="maxlength">Cannot exceed 30 characters.</p>
 			<p ng-message="required">It is a required field</p>
 		</div>
-		Mobile Number:
+		<br>
+		Mobile Number
 		<input type="text" class="form-control" ng-model="emp.mobile" ng-required="true" name="mobile" ng-pattern="/^\d\d\d\d\d\d\d\d\d\d$/">
 		<div uib-alert class="alert-danger" ng-messages="createEmployee.mobile.$error" ng-if="createEmployee.mobile.$invalid && createEmployee.mobile.$touched">
 			<p ng-message="pattern">Please enter a valid 10 digit mobile no.</p>
 			<p ng-message="required">It is a required field</p>
 		</div>
-		Email ID:
+		<br>
+		Email ID
 		<input type="email" class="form-control" ng-model="emp.email" name="emailId" ng-required="true">
 		<div uib-alert class="alert-danger" ng-messages="createEmployee.emailId.$error" ng-if="createEmployee.emailId.$invalid && createEmployee.emailId.$touched">
 			<p ng-message="email">
@@ -37,16 +39,18 @@
 		</div>
 
 		<br>
+		<br>
 		<fieldset>
 			<legend>Permanent Address</legend>
-			Address :
+			Address
 			<textarea class="form-control" ng-model="emp.pAddress.addr" ng-required="true" name="pAddressAddr" ng-pattern="/^[0-9A-Za-z-,/ ]+$/"></textarea>
 			<div uib-alert class="alert-danger" ng-messages="createEmployee.pAddressAddr.$error" ng-if="createEmployee.pAddressAddr.$invalid && createEmployee.pAddressAddr.$touched">
 				<p ng-message="pattern">Only alphabets and , / - are allowed</p>
 				<p ng-message="required">It is a required field</p>
 				<p ng-message="maxlength">Should be at most 100 characters</p>
 			</div>
-			City:
+			<br>
+			City
 			<input type="text" class="form-control" name="pAddressCity" ng-model="emp.pAddress.city" ng-required="true" ng-minlength="3"
 			 ng-maxlength="30" ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/">
 			<div uib-alert class="alert-danger" ng-messages="createEmployee.pAddressCity.$error" ng-if="createEmployee.pAddressCity.$invalid && createEmployee.pAddressCity.$touched">
@@ -55,7 +59,8 @@
 				<p ng-message="required">It is a required field</p>
 				<p ng-message="pattern">Should be a valid city name</p>
 			</div>
-			State:
+			<br>
+			State
 			<input type="text" class="form-control" ng-model="emp.pAddress.state" ng-required="true" ng-minlength="3" ng-maxlength="30"
 			 ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/" name="pAddressState">
 			<div uib-alert class="alert-danger" ng-messages="createEmployee.pAddressState.$error" ng-if="createEmployee.pAddressState.$invalid && createEmployee.pAddressState.$touched">
@@ -64,7 +69,8 @@
 				<p ng-message="required">It is a required field</p>
 				<p ng-message="pattern">Should be a valid city name</p>
 			</div>
-			Pincode:
+			<br>
+			Pincode
 			<input type="text" class="form-control" ng-model="emp.pAddress.pinCode" ng-required="true" ng-pattern="/^\d\d\d\d\d\d$/"
 			 name="pAddressPincode">
 			<div uib-alert class="alert-danger" ng-messages="createEmployee.pAddressPincode.$error" ng-if="createEmployee.pAddressPincode.$invalid && createEmployee.pAddressPincode.$touched">
@@ -78,8 +84,10 @@
 		<fieldset>
 			<legend>Current Address</legend>
 			<input type="checkbox" ng-model="emp.cAddress.sameAsPermanent">Same As Permanent?
+			<br>
+			<br>
 			<div ng-if="!emp.cAddress.sameAsPermanent">
-				Address :
+				Address
 				<textarea class="form-control" ng-model="emp.cAddress.addr" name="cAddressAddr" ng-required="true" ng-pattern="/^[0-9A-Za-z-,/ ]+$/"
 				 maxlength="100"></textarea>
 				<div uib-alert class="alert-danger" ng-messages="createEmployee.cAddressAddr.$error" ng-if="createEmployee.cAddressAddr.$invalid && createEmployee.cAddressAddr.$touched">
@@ -87,9 +95,10 @@
 					<p ng-message="required">It is a required field</p>
 					<p ng-message="maxlength">Should be at most 100 characters.</p>
 				</div>
-				City:
+				<br>
+				City
 				<input type="text" class="form-control" name="cAddressCity" ng-model="emp.cAddress.city" ng-required="true" ng-minlength="3"
-				 ng-maxlength="30" ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/"> State:
+				 ng-maxlength="30" ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/"> 
 				<div uib-alert class="alert-danger" ng-messages="createEmployee.cAddressCity.$error" ng-if="createEmployee.cAddressCity.$invalid && createEmployee.cAddressCity.$touched"
 				 ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/">
 					<p ng-message="minlength">Should be atleast 3 characters</p>
@@ -97,14 +106,18 @@
 					<p ng-message="required">It is a required field</p>
 					<p ng-message="pattern">Should be a valid city name</p>
 				</div>
+				<br>
+				State
 				<input type="text" class="form-control" name="cAddressState" ng-model="emp.cAddress.state" ng-required="true" ng-minlength="3"
-				 ng-maxlength="30" ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/"> Pincode:
+				 ng-maxlength="30" ng-pattern="/^[A-Za-z][A-Za-z ]+[A-Za-z]$/">
 				<div uib-alert class="alert-danger" ng-messages="createEmployee.cAddressState.$error" ng-if="createEmployee.cAddressState.$invalid && createEmployee.cAddressState.$touched">
 					<p ng-message="minlength">Should be atleast 3 characters</p>
 					<p ng-message="maxlength">Should be at max 30 characters</p>
 					<p ng-message="required">It is a required field</p>
 					<p ng-message="pattern">Should be a valid city name</p>
 				</div>
+				<br>
+				Pincode
 				<input type="text" class="form-control" name="cAddressPincode" ng-model="emp.cAddress.pinCode" ng-required="true" ng-pattern="/^\d\d\d\d\d\d$/">
 				<div uib-alert class="alert-danger" ng-messages="createEmployee.cAddressPincode.$error" ng-if="createEmployee.cAddressPincode.$invalid && createEmployee.cAddressPincode.$touched">
 					<p ng-message="pattern">Enter a valid pincode</p>
@@ -129,7 +142,7 @@
 		<br> Salary Structure
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				Components Available:-
+				Components Available:
 				<!-- DND 1 for available salary components -->
 				<ul dnd-list="availableSalaries">
 					<li ng-repeat="item in availableSalaries" dnd-draggable="item" dnd-moved="availableSalaries.splice($index, 1)" dnd-effect-allowed="move">
@@ -210,8 +223,9 @@
 
 		<br>
 		<br>
-		<button class="btn btn-success" ng-click="addEmployee()" ng-disabled="createEmployee.$invalid">{{buttonText}}</button>
-
+		<div class="createEmpCenter">
+		<button class="btn btn-success createEmpBtn" ng-click="addEmployee()" ng-disabled="createEmployee.$invalid">{{buttonText}}</button>
+	</div>
 		<br>
 		<br>
 

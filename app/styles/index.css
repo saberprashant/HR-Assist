@@ -204,7 +204,7 @@ a.article, a.article:hover {
 ----------------------------------------------------- */
 #content {
     padding: 20px;
-    padding-left: 60px;
+    padding-left: 80px;
     min-height: 100vh;
     transition: all 0.3s;
     /* margin-left: 250px;
