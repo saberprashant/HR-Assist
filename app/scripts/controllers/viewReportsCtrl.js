@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewReportsCtrl", ['OvertimeServ','ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state',
+  .controller("viewReportsCtrl", ['OvertimeServ', 'ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state',
     function (OvertimeServ, ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state) {
 
       $scope.showReport = false;
@@ -27,6 +27,12 @@ angular.module("hrmsAngularjsApp")
         .then(function (response) {
           $scope.shifts = response.data;
         });
+
+      OvertimeServ.getOvertime()
+        .then(function (response) {
+          $scope.overtime = response.data;
+          $scope.overtimeAllowance = $scope.overtime.allowance;
+        })
 
 
       $scope.viewReport = function () {
@@ -71,6 +77,7 @@ angular.module("hrmsAngularjsApp")
             var finalDaySal = oneDaySal;
 
 
+            //for shift start time difference 
             if (startTimeDiff < 0) {        //came late - deduction (start)
               var positive = startTimeDiff * (-1);
               for (let j = 0; j < $scope.settings.length; j++) {
@@ -83,27 +90,18 @@ angular.module("hrmsAngularjsApp")
               }
             }
             else if (startTimeDiff > 0) {     //early start - overtime (start)
-              for (let j = 0; j < $scope.settings.length; j++) {
-                if ($scope.settings[j].name == "Overtime") {
-                  overtime = overtime + (parseInt($scope.settings[j].deduction) * startTimeDiffHours);
-                  finalDaySal = finalDaySal + (parseInt($scope.settings[j].deduction) * startTimeDiffHours);
+                  overtime = overtime + (parseInt($scope.overtimeAllowance) * startTimeDiffHours);
+                  finalDaySal = finalDaySal + (parseInt($scope.overtimeAllowance) * startTimeDiffHours);
                   console.log('2', overtime, finalDaySal);
-                  break;
-                }
-              }
             }
 
+
+            //for end shift time difference
             if (endTimeDiff < 0) {        //working late - overtime (end)
               endTimeDiffHours *= -1;
-              for (let j = 0; j < $scope.settings.length; j++) {
-                if ($scope.settings[j].name == "Overtime") {
-                  overtime = overtime + (((parseInt($scope.settings[j].deduction))) * endTimeDiffHours);
-                  finalDaySal = finalDaySal + (((parseInt($scope.settings[j].deduction))) * endTimeDiffHours);
+                  overtime = overtime + (parseInt($scope.overtimeAllowance) * endTimeDiffHours);
+                  finalDaySal = finalDaySal + (parseInt($scope.overtimeAllowance) * endTimeDiffHours);
                   console.log('3', overtime, finalDaySal);
-
-                  break;
-                }
-              }
             }
             else if (endTimeDiff > 0) {      //left early - deduction (end)
               for (let j = 0; j < $scope.settings.length; j++) {

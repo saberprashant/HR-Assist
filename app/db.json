@@ -739,6 +739,6 @@
   ],
   "overtime": {
     "name": "Overtime",
-    "allowance": "200"
+    "allowance": "150"
   }
 }
