@@ -310,46 +310,410 @@
       "id": 3
     }
   ],
-  "employees": [],
-  "attendances": [
+  "employees": [
     {
-      "attendanceDate": "2018-04-03T15:53:15.541Z",
-      "empId": 4,
-      "empName": "Janit",
-      "checkInTime": "2018-04-03T03:30:15.541Z",
-      "checkOutTime": "2018-04-03T16:30:15.541Z",
+      "cAddress": {
+        "addr": "Block 1234",
+        "city": "Delhi",
+        "state": "delhi",
+        "pinCode": "110025"
+      },
+      "firstName": "Prashant",
+      "lastName": "Jain",
+      "mobile": "7896544589",
+      "email": "pj@jain.com",
+      "pAddress": {
+        "addr": "Block 1234",
+        "city": "Delhi",
+        "state": "delhi",
+        "pinCode": "110025"
+      },
+      "designationName": "Junior SDE",
+      "designationId": 3,
+      "shiftId": "1",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 4000
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "5000"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 2500
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "25000"
+        }
+      ],
+      "totalSal": 42500,
+      "shiftName": "Shift 1",
       "id": 1
     },
     {
-      "attendanceDate": "2018-04-03T16:13:53.905Z",
-      "empId": 1,
-      "empName": "Prashant",
-      "checkInTime": "2018-04-03T06:30:53.905Z",
-      "checkOutTime": "2018-04-03T16:30:53.905Z",
+      "cAddress": {
+        "addr": "CV 234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110025"
+      },
+      "firstName": "Rishabh",
+      "lastName": "Jain",
+      "mobile": "8457965845",
+      "email": "ris@ja.com",
+      "pAddress": {
+        "addr": "CV 234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110025"
+      },
+      "designationName": "Senior SDE",
+      "designationId": 4,
+      "shiftId": "2",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 9600
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 6000
+        },
+        {
+          "name": "Food",
+          "value": "3500",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 6,
+          "amount": "3500"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "60000"
+        }
+      ],
+      "totalSal": 71100,
+      "shiftName": "Shift 2",
       "id": 2
     },
     {
-      "attendanceDate": "2018-04-02T16:14:22.472Z",
-      "empId": 1,
-      "empName": "Prashant",
-      "checkInTime": "2018-04-03T03:30:22.472Z",
-      "checkOutTime": "2018-04-03T14:30:22.472Z",
+      "cAddress": {
+        "addr": "block 456",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110245"
+      },
+      "firstName": "Prashant",
+      "lastName": "Singh",
+      "mobile": "8574859658",
+      "email": "pra@sin.com",
+      "pAddress": {
+        "addr": "block 456",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110245"
+      },
+      "designationName": "Senior SDE",
+      "designationId": 4,
+      "shiftId": "2",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 9600
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 6000
+        },
+        {
+          "name": "Food",
+          "value": "3500",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 6,
+          "amount": "3500"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "60000"
+        }
+      ],
+      "totalSal": 71100,
+      "shiftName": "Shift 2",
       "id": 3
     },
     {
-      "attendanceDate": "2018-04-03T16:14:50.575Z",
+      "cAddress": {
+        "addr": "block V 987",
+        "city": "West Delhi",
+        "state": "Delhi",
+        "pinCode": "110025"
+      },
+      "firstName": "Ankit",
+      "lastName": "Kumar",
+      "mobile": "7485965847",
+      "email": "ank@km.com",
+      "pAddress": {
+        "addr": "block V 987",
+        "city": "West Delhi",
+        "state": "Delhi",
+        "pinCode": "110025"
+      },
+      "designationName": "iOS Developer",
+      "designationId": 5,
+      "shiftId": "1",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 6400
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "Parking",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 9,
+          "amount": "1000"
+        },
+        {
+          "name": "DA",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 7,
+          "amount": 4000
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "40000"
+        }
+      ],
+      "totalSal": 62400,
+      "id": 4,
+      "shiftName": "Shift 1"
+    },
+    {
+      "cAddress": {
+        "addr": "Block 1234567",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110025"
+      },
+      "firstName": "Rahul",
+      "lastName": "Chandra",
+      "mobile": "7485985478",
+      "email": "rahul@posist.com",
+      "pAddress": {
+        "addr": "Block 1234567",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110025"
+      },
+      "designationName": "Technical Manager",
+      "designationId": 1,
+      "shiftId": "3",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 6400
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "5000"
+        },
+        {
+          "name": "Food",
+          "value": "3500",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 6,
+          "amount": "3500"
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 4000
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "40000"
+        }
+      ],
+      "totalSal": 54900,
+      "shiftName": "Shift 3",
+      "id": 5
+    }
+  ],
+  "attendances": [
+    {
+      "attendanceDate": "2018-04-04T04:03:37.247Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-04T04:30:37.247Z",
+      "checkOutTime": "2018-04-04T14:30:37.247Z",
+      "id": 1
+    },
+    {
+      "attendanceDate": "2018-04-04T04:05:36.974Z",
       "empId": 3,
-      "empName": "Ankit",
-      "checkInTime": "2018-04-03T05:30:50.575Z",
-      "checkOutTime": "2018-04-03T16:30:50.575Z",
+      "empName": "Prashant",
+      "checkInTime": "2018-04-04T03:30:36.974Z",
+      "checkOutTime": "2018-04-04T15:30:36.974Z",
+      "id": 2
+    },
+    {
+      "attendanceDate": "2018-04-04T04:05:58.049Z",
+      "empId": 2,
+      "empName": "Rishabh",
+      "checkInTime": "2018-04-04T06:30:58.049Z",
+      "checkOutTime": "2018-04-04T16:30:58.049Z",
+      "id": 3
+    },
+    {
+      "attendanceDate": "2018-04-03T04:06:30.195Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-04T03:30:30.195Z",
+      "checkOutTime": "2018-04-04T08:30:30.195Z",
       "id": 4
     },
     {
-      "attendanceDate": "2018-04-02T16:15:20.560Z",
+      "attendanceDate": "2018-04-04T04:07:03.193Z",
       "empId": 3,
-      "empName": "Ankit",
-      "checkInTime": "2018-04-03T03:30:20.560Z",
-      "checkOutTime": "2018-04-03T14:30:20.560Z",
+      "empName": "Prashant",
+      "checkInTime": "2018-04-04T07:30:03.193Z",
+      "checkOutTime": "2018-04-04T14:30:03.193Z",
       "id": 5
     }
   ],
@@ -371,6 +735,12 @@
       "timeVal": "180",
       "deduction": "400",
       "id": 3
+    },
+    {
+      "name": "Overtime",
+      "timeVal": "60",
+      "deduction": "100",
+      "id": 4
     }
   ]
 }

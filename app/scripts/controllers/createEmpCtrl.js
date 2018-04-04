@@ -148,7 +148,13 @@ angular.module("hrmsAngularjsApp")
       $scope.addEmployee = function () {
         $scope.emp.salaryStructure = $scope.selectedSalaries;
         $scope.emp.totalSal = $scope.total;
-        $scope.emp.shiftName = $scope.shifts[$scope.emp.shiftId].name;
+        for(let i=0; i<$scope.shifts.length; i++) {
+          console.log('shift name', $scope.shifts[i].name);
+          if($scope.shifts[i].id == $scope.emp.shiftId) {
+            console.log('shift id', $scope.shifts[i].id);
+            $scope.emp.shiftName = $scope.shifts[i].name;
+          }
+        }
 
         if ($scope.emp.cAddress.sameAsPermanent) {
           $scope.emp.cAddress = $scope.emp.pAddress;

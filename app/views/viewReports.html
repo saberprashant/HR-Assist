@@ -7,17 +7,17 @@
     <br>
     <br>
     <br>
+    <button style="text-align: center;" type="button" class="btn btn-success" ng-click="viewReport()">View Report</button>
     <br>
-    <div>
+    <br>
+    <div ng-show="showReport">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title">{{desig.name}}</h3>
+          <h3 class="panel-title">Salary Report</h3>
         </div>
-        <div class="panel-body">
-          <!-- <h3>Designation Description : </h3> -->
+        <div class="panel-body">  
   
-          <h4>Salary structure</h4>
-  
+          <h4>Shift Time: {{shiftStart | date: 'shortTime'}} - {{shiftEnd | date: 'shortTime'}}</h4>
           <!--Table-->
           <table class="table">
   
@@ -25,24 +25,28 @@
             <thead class="table-success">
               <tr class="text-white table-warning">
                 <th>#</th>
-                <th>Component</th>
-                <th>Value</th>
-                <th>Amount</th>
-                <th>Type</th>
+                <th>Date</th>
+                <th>Check-In Time</th>
+                <th>Check-Out Time</th>
+                <th>One Day Salary</th>
+                <th>Deduction</th>
+                <th>Overtime</th>
+                <th>Final Day Salary</th>
               </tr>
             </thead>
             <!--Table head-->
   
             <!--Table body-->
             <tbody>
-              <tr ng-repeat="(index,salary) in desig.salaryStructure">
+              <tr ng-repeat="(index,report) in reportData">
                 <th scope="row">{{index+1}}</th>
-                <td>{{salary.name}}</td>
-                <td ng-if=" salary.valueType === 'percentage' ">{{salary.value}} %</td>
-                <td ng-if=" salary.valueType === 'custom' ">{{salary.value}} INR</td>
-                <td ng-if=" salary.name === 'basic' ">-</td>
-                <td>{{salary.amount}}</td>
-                <td>{{salary.type}}</td>
+                <td>{{report.attendanceDate | date: 'shortDate'}}</td>
+                <td>{{report.checkInTime | date: 'shortTime'}}</td>
+                <td>{{report.checkOutTime | date: 'shortTime'}}</td>
+                <td>{{report.oneDaySal}}</td>
+                <td>{{report.deduction}}</td>
+                <td>{{report.overtime}}</td>
+                <td>{{report.finalDaySal}}</td>
               </tr>
             </tbody>
             
