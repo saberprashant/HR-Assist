@@ -743,6 +743,12 @@
       "timeVal": "180",
       "deduction": "400",
       "id": 7
+    },
+    {
+      "name": "Late 4",
+      "timeVal": "300",
+      "deduction": "1000",
+      "id": 8
     }
   ],
   "overtime": {
