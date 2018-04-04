@@ -715,6 +715,14 @@
       "checkInTime": "2018-04-04T07:30:03.193Z",
       "checkOutTime": "2018-04-04T14:30:03.193Z",
       "id": 5
+    },
+    {
+      "attendanceDate": "2018-04-04T20:07:29.451Z",
+      "empId": 4,
+      "empName": "Ankit",
+      "checkInTime": "2018-04-05T05:30:29.451Z",
+      "checkOutTime": "2018-04-05T15:30:29.451Z",
+      "id": 6
     }
   ],
   "settings": [

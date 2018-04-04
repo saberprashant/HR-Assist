@@ -1,59 +1,59 @@
 <div>
 
-    <h4>Select employee to view report</h4>
+  <h4>Select employee to view report</h4>
 
-    <input type="text" ng-model="empSelected" uib-typeahead="employee as employee.firstName + ' ' + employee.lastName + ' - ' + employee.designationName for employee in employees | filter:$viewValue | limitTo:8"
-        class="form-control">
-    <br>
-    <br>
-    <br>
-    <button style="text-align: center;" type="button" class="btn btn-success" ng-click="viewReport()">View Report</button>
-    <br>
-    <br>
-    <div ng-show="showReport">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Salary Report</h3>
-        </div>
-        <div class="panel-body">  
-  
-          <h4>Shift Time: {{shiftStart | date: 'shortTime'}} - {{shiftEnd | date: 'shortTime'}}</h4>
-          <!--Table-->
-          <br>
-          <table class="table">
-  
-            <!--Table head-->
-            <thead class="table-success">
-              <tr class="text-white table-warning">
-                <th>#</th>
-                <th>Date</th>
-                <th>Check-In Time</th>
-                <th>Check-Out Time</th>
-                <th>One Day Salary</th>
-                <th>Deduction</th>
-                <th>Overtime</th>
-                <th>Final Day Salary</th>
-              </tr>
-            </thead>
-            <!--Table head-->
-  
-            <!--Table body-->
-            <tbody>
-              <tr ng-repeat="(index,report) in reportData">
-                <th scope="row">{{index+1}}</th>
-                <td>{{report.attendanceDate | date: 'shortDate'}}</td>
-                <td>{{report.checkInTime | date: 'shortTime'}}</td>
-                <td>{{report.checkOutTime | date: 'shortTime'}}</td>
-                <td>{{report.oneDaySal}}</td>
-                <td>{{report.deduction}}</td>
-                <td>{{report.overtime}}</td>
-                <td>{{report.finalDaySal}}</td>
-              </tr>
-            </tbody>
-            
-          </table>
-  
-        </div>
+  <input type="text" ng-model="empSelected" uib-typeahead="employee as employee.firstName + ' ' + employee.lastName + ' - ' + employee.designationName for employee in employees | filter:$viewValue | limitTo:8"
+    class="form-control">
+  <br>
+  <br>
+  <br>
+  <button style="text-align: center;" type="button" class="btn btn-success" ng-click="viewReport()">View Report</button>
+  <br>
+  <br>
+  <div ng-show="showReport">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Salary Report</h3>
+      </div>
+      <div class="panel-body">
+
+        <h4>Shift Time: {{shiftStart | date: 'shortTime'}} - {{shiftEnd | date: 'shortTime'}}</h4>
+        <!--Table-->
+        <br>
+        <table class="table">
+
+          <!--Table head-->
+          <thead class="table-success">
+            <tr class="text-white table-warning">
+              <th>#</th>
+              <th>Date</th>
+              <th>Check-In Time</th>
+              <th>Check-Out Time</th>
+              <th>One Day Salary</th>
+              <th>Deduction</th>
+              <th>Overtime</th>
+              <th>Final Day Salary</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+            <tr ng-repeat="(index,report) in reportData">
+              <th scope="row">{{index+1}}</th>
+              <td>{{report.attendanceDate | date: 'shortDate'}}</td>
+              <td>{{report.checkInTime | date: 'shortTime'}}</td>
+              <td>{{report.checkOutTime | date: 'shortTime'}}</td>
+              <td>{{report.oneDaySal}}</td>
+              <td>{{report.deduction}}</td>
+              <td>{{report.overtime}}</td>
+              <td>{{report.finalDaySal}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
       </div>
     </div>
   </div>
+</div>
