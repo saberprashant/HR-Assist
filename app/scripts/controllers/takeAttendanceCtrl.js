@@ -53,7 +53,7 @@ angular.module("hrmsAngularjsApp")
           }
         } else {
           $scope.attendanceFailed = true;
-          $scope.errMsg = "Make sure you entered employee name."
+          $scope.errMsg = "Make sure you enter employee name."
         }
 
 

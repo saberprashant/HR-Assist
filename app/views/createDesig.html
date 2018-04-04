@@ -1,7 +1,8 @@
-<h3>Create Designation</h3>
+<h3 class="createDesig1">Create Designation</h3>
+<br>
 <div class="createDesignation">
 	<form name="form">
-		Designation Name :
+		<h4>Designation Name :</h4>
 		<input class="form-control" type="text" ng-model="designationName" name="designationName" ng-required="true" ng-minlength="2"
 		 ng-maxlength="30" designation-name oldname="{{oldname}}">
 		<div uib-alert class="alert-danger" ng-messages="form.designationName.$error" ng-if="form.designationName.$touched && form.designationName.$invalid">
@@ -18,16 +19,18 @@
 				Designation name already exists.
 			</p>
 		</div>
-		Description:
+		<br>
+		<h4>Description :</h4>
 		<textarea class="form-control" ng-model="designationDescription" ng-maxlength="100" name="designationDescription"></textarea>
 		<div uib-alert class="alert-danger" ng-if="form.designationDescription.$error.maxlength">
 			Max length for Description is 100 characters.
 		</div>
+		<br>
 		<h3>Set Salary Structure</h3>
 		<div class="row">
 
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				Components Available:-
+				Components Available:
 				<!-- DND 1 for available salary components -->
 				<ul dnd-list="availableSalaries">
 					<li ng-repeat="item in availableSalaries" dnd-draggable="item" 
@@ -106,8 +109,11 @@
 
 
 		<br>
-		<button ng-show="!editMode" class="btn btn-success" ng-click="addDesignation()" ng-disabled="form.$invalid">Add Designation</button>
-		<button ng-show="editMode" class="btn btn-success" ng-click="updateDesignation()" ng-disabled="form.$invalid">Update Designation</button>
+		<div class="createDesig1">
+		<button ng-show="!editMode" class="btn btn-success desigBtn" ng-click="addDesignation()" ng-disabled="form.$invalid">Add Designation</button>
+		<button ng-show="editMode" class="btn btn-success desigBtn" ng-click="updateDesignation()" ng-disabled="form.$invalid">Update Designation</button>
+		<br><br>
+	</div>
 	</form>
 
 	<div uib-alert class="alert-success" ng-show="designationSuccess">
