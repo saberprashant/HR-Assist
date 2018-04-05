@@ -42,7 +42,11 @@ angular.module("hrmsAngularjsApp")
             console.log('Inside getEmployeeWithId', response.data);
             $scope.emp = response.data;
             $scope.selectedSalaries = $scope.emp.salaryStructure;
-            $scope.designation = $scope.designations[$scope.emp.designationId];
+
+            // take care of $scope.designations array (from 0 to n-1) and $scope.emp.designationId (from 1 to n)
+            $scope.designation = $scope.designations[$scope.emp.designationId - 1];
+            console.log('$scope.designations', $scope.designations);
+            console.log('$scope.designation', $scope.designation);
 
             //Set basic amount which was set at time of creating a new employee
             $scope.basicAmount = $scope.selectedSalaries[$scope.selectedSalaries.length - 1].amount;
@@ -215,6 +219,10 @@ angular.module("hrmsAngularjsApp")
         }
         $scope.updateTotal();
       };
+
+      $scope.cancelEmp = function() {
+        $state.go('home');
+      }
 
     }]);
 

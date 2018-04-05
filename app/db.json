@@ -356,14 +356,6 @@
           "amount": "1000"
         },
         {
-          "name": "TA",
-          "value": "5000",
-          "valueType": "custom",
-          "type": "allowance",
-          "id": 3,
-          "amount": "5000"
-        },
-        {
           "name": "PF",
           "value": "10",
           "valueType": "percentage",
@@ -385,7 +377,7 @@
           "amount": "25000"
         }
       ],
-      "totalSal": 42500,
+      "totalSal": 37500,
       "shiftName": "Shift 1",
       "id": 1
     },

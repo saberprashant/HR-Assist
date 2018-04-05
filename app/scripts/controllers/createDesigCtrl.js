@@ -87,5 +87,9 @@ angular.module("hrmsAngularjsApp")
       };
 
 
+      $scope.cancelDesig = function() {
+        $state.go('home');
+      }
+
     }]);
 
