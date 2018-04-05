@@ -1,12 +1,13 @@
 <div>
   <br>
   <button style="float:right;" type="button" class="btn btn-success" ng-click="addEmp()">+ New Employee</button>
+
   <br>
   <br>
   <br>
   <br>
   <div ng-repeat="emp in employees">
-    <div class="panel panel-info">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 style="float:left" class="panel-title">{{emp.firstName}} {{emp.lastName}}</h3>
         <div style="float:right">
@@ -17,55 +18,107 @@
       </div>
 
       <div class="panel-body">
-        <h4>Designation: {{emp.designationName}}</h4>
-        <h4>Shift: {{emp.shiftName}}</h4>
-        <h4>Mobile No: {{emp.mobile}}</h4>
-        <h4>Email : {{emp.email}}</h4>
 
-        <br>
-        <h4>Current Address</h4>
-        <blockquote>
-          <p>Address: {{emp.cAddress.addr}}</p>
-          <p>City: {{emp.cAddress.city}}</p>
-          <p>State: {{emp.cAddress.state}}</p>
-          <p>Pincode: {{emp.cAddress.pinCode}}</p>
-        </blockquote>
-        <br>
-        <h4>Salary structure</h4>
+        <table class="table borderless">
 
-        <!--Table-->
-        <table class="table">
-
-          <!--Table head-->
-          <thead class="table-success">
-            <tr class="text-white table-warning">
-              <th>#</th>
-              <th>Component</th>
-              <th>Value</th>
-              <th>Amount</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <!--Table head-->
-
-          <!--Table body-->
           <tbody>
-            <tr ng-repeat="(index,salary) in emp.salaryStructure">
-              <th scope="row">{{index+1}}</th>
-              <td>{{salary.name}}</td>
-              <td ng-if=" salary.valueType === 'percentage' ">{{salary.value}} %</td>
-              <td ng-if=" salary.valueType === 'custom' ">{{salary.value}} INR</td>
-              <td ng-if=" salary.name === 'basic' ">-</td>
-              <td>{{salary.amount}}</td>
-              <td>{{salary.type}}</td>
+            <tr>
+              <td>Designation</td>
+              <td>{{emp.designationName}}</td>
             </tr>
-
+            <tr>
+              <td>Shift</td>
+              <td>{{emp.shiftName}}</td>
+            </tr>
+            <tr>
+              <td>Mobile No.</td>
+              <td>{{emp.mobile}}</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>{{emp.email}}</td>
+            </tr>
           </tbody>
-          <!--Table body-->
-
         </table>
-        <!--Table-->
+        <br>
+        <br>
+
+
+
+        <uib-accordion close-others="oneAtATime">
+
+          <div uib-accordion-group class="panel-info">
+            <uib-accordion-heading>
+              Current Address
+              <span class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></span>
+            </uib-accordion-heading>
+            <table class="table borderless">
+              <tbody>
+                <tr>
+                  <td>Address</td>
+                  <td>{{emp.cAddress.addr}}</td>
+                </tr>
+                <tr>
+                  <td>City</td>
+                  <td>{{emp.cAddress.city}}</td>
+                </tr>
+                <tr>
+                  <td>State</td>
+                  <td>{{emp.cAddress.state}}</td>
+                </tr>
+                <tr>
+                  <td>Pincode</td>
+                  <td>{{emp.cAddress.pinCode}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div uib-accordion-group class="panel-info">
+            <uib-accordion-heading>
+              Salary structure
+              <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </uib-accordion-heading>
+            <!--Table-->
+            <table class="table">
+
+              <!--Table head-->
+              <thead class="table-success">
+                <tr class="text-white table-warning">
+                  <th>#</th>
+                  <th>Component</th>
+                  <th>Value</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <!--Table head-->
+
+              <!--Table body-->
+              <tbody>
+                <tr ng-repeat="(index,salary) in emp.salaryStructure">
+                  <th scope="row">{{index+1}}</th>
+                  <td>{{salary.name}}</td>
+                  <td ng-if=" salary.valueType === 'percentage' ">{{salary.value}} %</td>
+                  <td ng-if=" salary.valueType === 'custom' ">{{salary.value}} INR</td>
+                  <td ng-if=" salary.name === 'basic' ">-</td>
+                  <td>{{salary.amount}}</td>
+                  <td>{{salary.type}}</td>
+                </tr>
+
+              </tbody>
+              <!--Table body-->
+
+            </table>
+            <!--Table-->
+          </div>
+        </uib-accordion>
+
+
+
+
       </div>
     </div>
   </div>
+
 </div>
