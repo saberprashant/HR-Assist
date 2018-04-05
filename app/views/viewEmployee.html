@@ -48,7 +48,7 @@
         <uib-accordion close-others="oneAtATime">
 
           <div uib-accordion-group class="panel-info">
-            <uib-accordion-heading>
+            <uib-accordion-heading class="ul1">
               Current Address
               <span class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></span>
             </uib-accordion-heading>
@@ -75,10 +75,12 @@
           </div>
 
           <div uib-accordion-group class="panel-info">
-            <uib-accordion-heading>
-              Salary structure
-              <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-            </uib-accordion-heading>
+            <div>
+              <uib-accordion-heading>
+                Salary structure
+                <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+              </uib-accordion-heading>
+            </div>
             <!--Table-->
             <table class="table">
 
