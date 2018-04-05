@@ -133,7 +133,11 @@ angular.module("hrmsAngularjsApp")
           }
         }
 
-        console.log($scope.reportData);
+        $scope.reportData.sort(function(a,b){             //sorting the array for attendance date
+          return new Date(a.attendanceDate) - new Date(b.attendanceDate);
+        });
+        console.log('$scope.reportData', $scope.reportData);
+
         console.log('Change');
 
         $scope.showReport = true;

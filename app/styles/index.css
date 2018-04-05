@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: rgb(248, 245, 230);
+    /* background: rgb(248, 245, 230); */
+    background: white;
 }
 
 p {

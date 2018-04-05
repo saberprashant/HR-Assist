@@ -716,20 +716,68 @@
       "id": 4
     },
     {
-      "attendanceDate": "2018-04-04T04:07:03.193Z",
-      "empId": 3,
-      "empName": "Prashant",
-      "checkInTime": "2018-04-04T07:30:03.193Z",
-      "checkOutTime": "2018-04-04T14:30:03.193Z",
-      "id": 5
-    },
-    {
       "attendanceDate": "2018-04-04T20:07:29.451Z",
       "empId": 4,
       "empName": "Ankit",
       "checkInTime": "2018-04-05T05:30:29.451Z",
       "checkOutTime": "2018-04-05T15:30:29.451Z",
       "id": 6
+    },
+    {
+      "attendanceDate": "2018-04-02T06:10:22.999Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-05T05:30:22.999Z",
+      "checkOutTime": "2018-04-05T16:30:22.999Z",
+      "id": 7
+    },
+    {
+      "attendanceDate": "2018-04-05T06:13:56.720Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-05T00:30:56.720Z",
+      "checkOutTime": "2018-04-05T16:30:56.720Z",
+      "id": 8
+    },
+    {
+      "attendanceDate": "2018-04-03T06:19:20.737Z",
+      "empId": 2,
+      "empName": "Rishabh",
+      "checkInTime": "2018-04-05T07:30:20.737Z",
+      "checkOutTime": "2018-04-05T15:30:20.737Z",
+      "id": 9
+    },
+    {
+      "attendanceDate": "2018-04-02T06:20:17.364Z",
+      "empId": 2,
+      "empName": "Rishabh",
+      "checkInTime": "2018-04-05T02:30:17.364Z",
+      "checkOutTime": "2018-04-05T12:30:17.364Z",
+      "id": 10
+    },
+    {
+      "attendanceDate": "2018-04-03T06:20:45.356Z",
+      "empId": 4,
+      "empName": "Ankit",
+      "checkInTime": "2018-04-05T06:30:45.356Z",
+      "checkOutTime": "2018-04-05T17:30:45.356Z",
+      "id": 11
+    },
+    {
+      "attendanceDate": "2018-04-02T06:21:30.658Z",
+      "empId": 4,
+      "empName": "Ankit",
+      "checkInTime": "2018-04-05T04:30:30.658Z",
+      "checkOutTime": "2018-04-05T11:30:30.658Z",
+      "id": 12
+    },
+    {
+      "attendanceDate": "2018-04-01T06:21:48.993Z",
+      "empId": 4,
+      "empName": "Ankit",
+      "checkInTime": "2018-04-05T05:30:48.993Z",
+      "checkOutTime": "2018-04-05T14:30:48.993Z",
+      "id": 13
     }
   ],
   "settings": [
