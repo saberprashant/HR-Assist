@@ -139,7 +139,8 @@
 		</div>
 
 		<!-- for selecting salary components from available salary components -->
-		<br> Salary Structure
+		<br> 
+		<h4>Salary Structure</h4>
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 				Components Available:
@@ -155,11 +156,12 @@
 			</div>
 
 			<!-- for already selected components assigned to designation and to choose new salary commponents -->
+			Selected Components:
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 scrollSelComp">
 				<ul dnd-list="selectedSalaries" dnd-inserted="updateTotal('inserted at', index, external, type)">
 					<li>Basic (INR)
-						<input class="form-control" type="text" ng-model="basicAmount" name="basicAmount" ng-pattern="/^\d+$/" ng-required="true"
-						 ng-change="updateTotal()">
+						<input class="form-control" type="text" ng-model="basicAmount" name="basicAmount" placeholder="Enter basic.."
+						ng-pattern="/^\d+$/" ng-required="true" ng-change="updateTotal()">
 						<div uib-alert class="alert-danger" ng-messages="form.basicAmount.$error" ng-if="form.basicAmount.$invalid && form.basicAmount.$touched">
 							<p ng-message="pattern">Enter a valid no.</p>
 							<p ng-message="required">It is a required field</p>

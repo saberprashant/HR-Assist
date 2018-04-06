@@ -7,7 +7,7 @@
 }
 
 .scrollSelComp {
-  height: 350px;
+  height: 250px;
   overflow : auto;
   box-shadow: 0 0 2px #CCC;
 }

@@ -42,12 +42,15 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				Selected Components
+
+
+	
+			Selected Components
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 scrollDesComp">
 				<ul dnd-list="selectedSalaries"
 						dnd-inserted="updateTotal('inserted at', index, external, type)">
 					<li>Basic (INR)
-						<input class="form-control" type="text" ng-model="basicAmount" name="basicAmount" 
+						<input class="form-control" type="text" ng-model="basicAmount" name="basicAmount" placeholder="Enter basic..."
 						ng-pattern="/^\d+$/" ng-required="true" ng-change="updateTotal()">
 						<div uib-alert class="alert-danger" ng-messages="form.basicAmount.$error" 
 						ng-if="form.basicAmount.$invalid && form.basicAmount.$touched">
