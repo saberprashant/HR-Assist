@@ -3,6 +3,13 @@
   background: rgb(132, 0, 255);
 } */
 
-.ul1.active {
-  background: orange;
+
+a.accordion-toggle{
+  background: transparent;
+  color : #337ab7;
+}
+
+
+a.accordion-toggle::before{
+  display: none;
 }

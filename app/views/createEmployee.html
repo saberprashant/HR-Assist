@@ -155,8 +155,7 @@
 			</div>
 
 			<!-- for already selected components assigned to designation and to choose new salary commponents -->
-			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-				Selected Components
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 scrollSelComp">
 				<ul dnd-list="selectedSalaries" dnd-inserted="updateTotal('inserted at', index, external, type)">
 					<li>Basic (INR)
 						<input class="form-control" type="text" ng-model="basicAmount" name="basicAmount" ng-pattern="/^\d+$/" ng-required="true"

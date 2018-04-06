@@ -5,3 +5,9 @@
 .createEmpBtn {
   width: 20%;
 }
+
+.scrollSelComp {
+  height: 350px;
+  overflow : auto;
+  box-shadow: 0 0 2px #CCC;
+}
