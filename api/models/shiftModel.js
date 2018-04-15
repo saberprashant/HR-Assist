@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const shiftSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: String,
-  value: Number,
-  valueType: String,
-  type: String
+  start: Date,
+  end: Date
 });
 
-module.exports = mongoose.model('Salary', shiftSchema);
+module.exports = mongoose.model('Shift', shiftSchema);

@@ -13,6 +13,7 @@ angular.module("hrmsAngularjsApp")
 
       $scope.shift.start = new Date();
       $scope.shift.end = new Date();
+      
       // To add a new shift
       $scope.addShift = function () {
 

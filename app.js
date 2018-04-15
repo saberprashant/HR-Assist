@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
-const salaryRoute = require('./api/routes/salaryRoute')
+const salaryRoute = require('./api/routes/salaryRoute');
+const shiftRoute = require('./api/routes/shiftRoute');
 
 mongoose.connect("mongodb://localhost:27017/HRAssist");
 
@@ -29,7 +30,9 @@ app.get('/', function(req, res) {
 });
 
 //All routes
-app.use('/view_salary', salaryRoute)
+app.use('/view_salary', salaryRoute);
+
+app.use('/view_shifts', shiftRoute);
 
 
 
