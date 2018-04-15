@@ -1,13 +1,6 @@
 {
   "salaries": [
     {
-      "name": "HRA",
-      "value": "16",
-      "valueType": "percentage",
-      "type": "allowance",
-      "id": 1
-    },
-    {
       "name": "TA",
       "value": "5000",
       "valueType": "custom",
@@ -50,18 +43,25 @@
       "id": 8
     },
     {
-      "name": "Parking",
-      "value": "1000",
-      "valueType": "custom",
-      "type": "allowance",
-      "id": 9
-    },
-    {
       "name": "Medical",
       "value": "5000",
       "valueType": "custom",
       "type": "deduction",
       "id": 10
+    },
+    {
+      "name": "Appraisal",
+      "valueType": "custom",
+      "value": "5000",
+      "type": "allowance",
+      "id": 11
+    },
+    {
+      "name": "HRA",
+      "value": "15",
+      "valueType": "percentage",
+      "type": "allowance",
+      "id": 12
     }
   ],
   "designations": [
@@ -295,6 +295,116 @@
         }
       ],
       "id": 5
+    },
+    {
+      "name": "Senior Marketing Manager",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 11200
+        },
+        {
+          "name": "DA",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 7,
+          "amount": 7000
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 7000
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "TA",
+          "value": "5000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "5000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "70000"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "Junior Sales Head",
+      "salaryStructure": [
+        {
+          "name": "TA",
+          "value": "4000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "4000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "xx",
+          "value": "2000",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 12,
+          "amount": "2000"
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "Parking",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 9,
+          "amount": "1000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "45000"
+        }
+      ],
+      "id": 7
     }
   ],
   "shifts": [
@@ -672,6 +782,148 @@
       "totalSal": 54900,
       "shiftName": "Shift 3",
       "id": 5
+    },
+    {
+      "cAddress": {
+        "addr": "block 1234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110245"
+      },
+      "firstName": "Harsh",
+      "lastName": "Tyagi",
+      "mobile": "7844585695",
+      "email": "harsh@po.com",
+      "pAddress": {
+        "addr": "block 1234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110245"
+      },
+      "designationName": "Senior Marketing Manager",
+      "designationId": 6,
+      "shiftId": "2",
+      "salaryStructure": [
+        {
+          "name": "HRA",
+          "value": "16",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 1,
+          "amount": 11200
+        },
+        {
+          "name": "DA",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "allowance",
+          "id": 7,
+          "amount": 7000
+        },
+        {
+          "name": "PF",
+          "value": "10",
+          "valueType": "percentage",
+          "type": "deduction",
+          "id": 8,
+          "amount": 7000
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "Appraisal",
+          "valueType": "custom",
+          "value": "10000",
+          "type": "allowance",
+          "id": 11,
+          "amount": "10000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "70000"
+        }
+      ],
+      "totalSal": 102200,
+      "shiftName": "Shift 2",
+      "id": 6
+    },
+    {
+      "cAddress": {
+        "addr": "block 234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110245"
+      },
+      "firstName": "Ankit",
+      "lastName": "Jain",
+      "mobile": "7854569788",
+      "email": "an@ka.com",
+      "pAddress": {
+        "addr": "block 234",
+        "city": "Delhi",
+        "state": "Delhi",
+        "pinCode": "110245"
+      },
+      "designationName": "Junior Sales Head",
+      "designationId": 7,
+      "shiftId": "2",
+      "salaryStructure": [
+        {
+          "name": "TA",
+          "value": "4000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 3,
+          "amount": "4000"
+        },
+        {
+          "type": "allowance",
+          "valueType": "custom",
+          "value": "10000",
+          "name": "Misc",
+          "id": 5,
+          "amount": "10000"
+        },
+        {
+          "name": "xx",
+          "value": "2000",
+          "valueType": "custom",
+          "type": "deduction",
+          "id": 12,
+          "amount": "2000"
+        },
+        {
+          "name": "Internet",
+          "value": "1000",
+          "valueType": "custom",
+          "type": "allowance",
+          "id": 4,
+          "amount": "1000"
+        },
+        {
+          "name": "basic",
+          "type": "allowance",
+          "amount": "45000"
+        }
+      ],
+      "totalSal": 58000,
+      "shiftName": "Shift 2",
+      "id": 7
     }
   ],
   "attendances": [
@@ -770,6 +1022,22 @@
       "checkInTime": "2018-04-05T05:30:48.993Z",
       "checkOutTime": "2018-04-05T14:30:48.993Z",
       "id": 13
+    },
+    {
+      "attendanceDate": "2018-04-04T10:38:44.257Z",
+      "empId": 6,
+      "empName": "Harsh",
+      "checkInTime": "2018-04-06T03:30:44.257Z",
+      "checkOutTime": "2018-04-06T14:30:44.257Z",
+      "id": 14
+    },
+    {
+      "attendanceDate": "2018-04-06T12:36:00.202Z",
+      "empId": 1,
+      "empName": "Prashant",
+      "checkInTime": "2018-04-06T06:30:00.202Z",
+      "checkOutTime": "2018-04-06T15:30:00.202Z",
+      "id": 15
     }
   ],
   "settings": [

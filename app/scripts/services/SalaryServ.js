@@ -6,7 +6,7 @@ angular.module("hrmsAngularjsApp")
       let obj = {
         saveSalary(salary) {
 
-          return $http.post('http://localhost:3000/salaries', salary);
+          return $http.post('/view_salary', salary);
 
           // var request = $http.post('http://localhost:3000/salaries', salary);       //another way of doing
           // request.then(function (response) {
@@ -15,11 +15,11 @@ angular.module("hrmsAngularjsApp")
         },
 
         editSalary(salary) {
-          return $http.put('http://localhost:3000/salaries/' + salary.id, salary);
+          return $http.put('/view_salary/' + salary._id, salary);
         },
 
         getSalaries() {
-          return $http.get('http://localhost:3000/salaries');
+          return $http.get('/view_salary');
           // .then(function(response) {
           //   // self = response.data;
           //   console.log('Salaries',response.data);
@@ -30,7 +30,7 @@ angular.module("hrmsAngularjsApp")
         },
 
         deleteSalary(id) {
-          return $http.delete('http://localhost:3000/salaries/' + id)
+          return $http.delete('/view_salary/' + id)
         }
       };
 

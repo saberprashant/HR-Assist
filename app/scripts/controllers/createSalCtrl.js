@@ -22,6 +22,7 @@ angular.module("hrmsAngularjsApp")
 
 				function success() {
 					console.log("Salary Comp. Added successfully");
+
 					$scope.salarySuccess = true;         //for error message
 					$timeout(function () {
 						$scope.cancel();
@@ -40,7 +41,7 @@ angular.module("hrmsAngularjsApp")
 			}
 
 
-			//for updating an existing salary component
+			//for updating an existing salary component (edit salary func)
 			$scope.updateSal = function (salary) {
 
 				SalaryServ.editSalary(salary)
