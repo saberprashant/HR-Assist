@@ -63,7 +63,7 @@ router.put('/:shiftID', (req, res, next) => {
   Shift.update({_id: id}, { $set: shift })
   .exec()
   .then(result => {
-    console.log('Shift patch -> ',  result);
+    console.log('Shift put -> ',  result);
     res.status(200).json(result);
   })
   .catch(err => {

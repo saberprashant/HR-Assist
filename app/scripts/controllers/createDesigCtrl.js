@@ -62,16 +62,16 @@ angular.module("hrmsAngularjsApp")
         function success() {
           console.log("Designation added successfully");
           $scope.designationSuccess = true;
-          $timeout(function () {
-            $state.go("view_desig");
-          }, 1000)
+          // $timeout(function () {
+          //   $state.go("view_desig");
+          // }, 1000)
         };
 
         function failed() {
           $scope.designationFailed = true;
-          $timeout(function () {
-            $state.go("home");
-          }, 1000)
+          // $timeout(function () {
+          //   $state.go("home");
+          // }, 1000)
         };
       };
 

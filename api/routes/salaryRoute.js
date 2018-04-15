@@ -65,7 +65,7 @@ router.put('/:salID', (req, res, next) => {
   Salary.update({_id: id}, { $set: salary })
   .exec()
   .then(result => {
-    console.log('Salary patch -> ',  result);
+    console.log('Salary put -> ',  result);
     res.status(200).json(result);
   })
   .catch(err => {

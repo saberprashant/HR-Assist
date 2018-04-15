@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 const salaryRoute = require('./api/routes/salaryRoute');
 const shiftRoute = require('./api/routes/shiftRoute');
+const desigRoute = require('./api/routes/desigRoute');
 
 mongoose.connect("mongodb://localhost:27017/HRAssist");
 
@@ -33,6 +34,9 @@ app.get('/', function(req, res) {
 app.use('/view_salary', salaryRoute);
 
 app.use('/view_shifts', shiftRoute);
+
+app.use('/create_desig', desigRoute)
+app.use('/view_desig', desigRoute)
 
 
 

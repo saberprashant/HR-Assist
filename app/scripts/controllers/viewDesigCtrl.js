@@ -5,8 +5,8 @@ angular.module("hrmsAngularjsApp")
     function (DesignationServ, $scope, $timeout, $state) {
 
       DesignationServ.getDesig()
-      .then(function(data){
-        $scope.designations = data;
+      .then(function(response){
+        $scope.designations = response.data;
       });
 
       $scope.addDesig = function() {
