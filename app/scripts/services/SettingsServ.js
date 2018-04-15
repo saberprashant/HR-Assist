@@ -5,19 +5,19 @@ angular.module("hrmsAngularjsApp")
     function ($http) {
       let obj = {
         saveSetting(setting) {
-          return $http.post('http://localhost:3000/settings', setting);
+          return $http.post('/view_settings', setting);
         },
 
         editSetting(setting) {
-          return $http.put('http://localhost:3000/settings/' + setting.id, setting);
+          return $http.put('/view_settings/' + setting._id, setting);
         },
 
         getSettings() {
-          return $http.get('http://localhost:3000/settings');
+          return $http.get('/view_settings');
         },
 
         deleteSetting(id) {
-          return $http.delete('http://localhost:3000/settings/' + id)
+          return $http.delete('/view_settings/' + id)
         }
       };
 

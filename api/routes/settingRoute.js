@@ -3,17 +3,17 @@ const router = express.Router();
 const path = require('path');
 const mongoose = require('mongoose');
 
-const Salary = require('../models/salaryModel')
+const Setting = require('../models/settingModel');
 
 router.get('/', (req, res, next) => {
-  Salary.find()
+  Setting.find()
   .exec()
   .then(result => {
-    console.log('All salary comp. -> ', result);
+    console.log('All setting comp. -> ', result);
     res.status(200).json(result);
   })
   .catch(err => {
-    console.log('Salary get err -> ', err);
+    console.log('Setting get err -> ', err);
     res.status(500).json({
       error: err 
     });
@@ -22,21 +22,20 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/', (req, res, next) => {
-  console.log('Salary Request body', req.body);
-  const salary = new Salary({
+  console.log('Setting Request body', req.body);
+  const setting = new Setting({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
-    value: parseInt(req.body.value),
-    valueType: req.body.valueType,
-    type: req.body.type
+    timeVal: parseInt(req.body.timeVal),
+    deduction: parseInt(req.body.deduction)
   });
-  console.log('view_salary post');
-  salary.save()
+  console.log('view_setting post');
+  setting.save()
   .then(result => {
     console.log(result);
     res.status(201).json({
-      message: "Salary Posted",
-      createdSalary: salary
+      message: "Setting Posted",
+      createdSetting: setting
     });
   })
   .catch(err => {
@@ -48,23 +47,17 @@ router.post('/', (req, res, next) => {
   
 });
 
-router.put('/:salID', (req, res, next) => {
-  const id = req.params.salID;
-  // const updateOps = {};         //for patch work
-  // for( const ops of req.body) {
-  //   updateOps[ops.name] = ops.value
-  // }
-  // Salary.update({_id: id}, { $set: updateOps })
-  const salary = {
+router.put('/:settingID', (req, res, next) => {
+  const id = req.params.settingID;
+  const setting = {
     name: req.body.name,
-    value: parseInt(req.body.value),
-    valueType: req.body.valueType,
-    type: req.body.type
+    timeVal: parseInt(req.body.timeVal),
+    deduction: parseInt(req.body.deduction)
   };
-  Salary.update({_id: id}, { $set: salary })
+  Setting.update({_id: id}, { $set: setting })
   .exec()
   .then(result => {
-    console.log('Salary put -> ',  result);
+    console.log('Setting put -> ',  result);
     res.status(200).json(result);
   })
   .catch(err => {
@@ -76,9 +69,9 @@ router.put('/:salID', (req, res, next) => {
 
 })
 
-router.delete('/:salID', (req, res, next) => {
-  const id = req.params.salID;
-  Salary.remove({_id: id})
+router.delete('/:settingID', (req, res, next) => {
+  const id = req.params.settingID;
+  Setting.remove({_id: id})
   .exec()
   .then(result => {
     res.status(200).json(result);

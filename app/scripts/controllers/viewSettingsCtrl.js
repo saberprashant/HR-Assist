@@ -11,11 +11,11 @@ angular.module("hrmsAngularjsApp")
           $scope.settings = response.data;
         });
 
-      OvertimeServ.getOvertime()
-      .then(function(response) {
-        $scope.overtime = response.data;
-        $scope.overtimeAllowance = $scope.overtime.allowance;
-      })
+      // OvertimeServ.getOvertime()
+      // .then(function(response) {
+      //   $scope.overtime = response.data;
+      //   $scope.overtimeAllowance = $scope.overtime.allowance;
+      // })
 
       $scope.showEditOvertime = false;
 

@@ -49,13 +49,7 @@ router.post('/', (req, res, next) => {
 
 router.put('/:shiftID', (req, res, next) => {
   const id = req.params.shiftID;
-  // const updateOps = {};         //for patch work
-  // for( const ops of req.body) {
-  //   updateOps[ops.name] = ops.value
-  // }
-  // Shift.update({_id: id}, { $set: updateOps })
   const shift = {
-    _id: req.body._id,
     name: req.body.name,
     start: req.body.start,
     end: req.body.end
