@@ -6,14 +6,14 @@ angular.module("hrmsAngularjsApp")
       let obj = {
 
         getOvertime() {
-          return $http.get('http://localhost:3000/overtime');
+          return $http.get('/overtime');
         },
 
         editOvertime(overtime) {
-          return $http.put('http://localhost:3000/overtime', overtime);
+          return $http.put('/overtime/' + overtime._id, overtime);
         }
 
-      };
+      };  
 
       return obj;
     }]);
