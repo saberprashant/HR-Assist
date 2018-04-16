@@ -13,8 +13,7 @@ angular.module("hrmsAngularjsApp")
 
       OvertimeServ.getOvertime()
       .then(function(response) {
-        $scope.overtimes = response.data;
-        $scope.overtime = $scope.overtimes[0];
+        $scope.overtime = response.data[0];
         $scope.overtimeAllowance = $scope.overtime.allowance;
       })
 

@@ -30,7 +30,7 @@ angular.module("hrmsAngularjsApp")
 
       OvertimeServ.getOvertime()
         .then(function (response) {
-          $scope.overtime = response.data;
+          $scope.overtime = response.data[0];
           $scope.overtimeAllowance = $scope.overtime.allowance;
         })
 
@@ -42,7 +42,7 @@ angular.module("hrmsAngularjsApp")
 
         var shiftStart, shiftEnd, shiftStartHours, shiftEndHours;
         for (let i = 0; i < $scope.shifts.length; i++) {
-          if ($scope.shifts[i].name === $scope.empSelected.shiftName) {
+          if ($scope.shifts[i]._id === $scope.empSelected.shiftId) {
             $scope.shiftStart = new Date($scope.shifts[i].start);
             $scope.shiftEnd = new Date($scope.shifts[i].end);
             shiftStartHours = $scope.shiftStart.getHours();
@@ -55,24 +55,25 @@ angular.module("hrmsAngularjsApp")
         for (let i = 0; i < $scope.attendances.length; i++) {
           var report = {};
 
-          if ($scope.attendances[i].empId === $scope.empSelected.id) {
+          if ($scope.attendances[i].empId == $scope.empSelected._id) {
             report.attendanceDate = new Date($scope.attendances[i].attendanceDate);
             report.checkInTime = new Date($scope.attendances[i].checkInTime);
             report.checkOutTime = new Date($scope.attendances[i].checkOutTime);
             report.oneDaySal = oneDaySal;
 
-            console.log('emp id', $scope.attendances[i].empId);
+            console.log('emp id ->', $scope.attendances[i].empId);
             console.log('checkin time', report.checkInTime.getHours());
             console.log('checkout time', report.checkOutTime.getHours());
 
-            var startTimeDiff = (shiftStartHours - report.checkInTime.getHours()) * 60;
-            var endTimeDiff = (shiftEndHours - report.checkOutTime.getHours()) * 60;
+            var startTimeDiff = (shiftStartHours - report.checkInTime.getHours()) * 60;   //in minutes
+            var endTimeDiff = (shiftEndHours - report.checkOutTime.getHours()) * 60;      //in minutes
             var startTimeDiffHours = shiftStartHours - report.checkInTime.getHours();
             var endTimeDiffHours = shiftEndHours - report.checkOutTime.getHours();
 
             console.log('startTimeDiff', startTimeDiff);
             console.log('endTimeDiff', endTimeDiff);
 
+            //deduction and overtime for single day
             var deduction = 0, overtime = 0;
             var finalDaySal = oneDaySal;
 
@@ -105,7 +106,7 @@ angular.module("hrmsAngularjsApp")
             }
             else if (endTimeDiff > 0) {      //left early - deduction (end)
               for (let j = 0; j < $scope.settings.length; j++) {
-                if (parseInt($scope.settings[j].timeVal) >= startTimeDiff) {
+                if (parseInt($scope.settings[j].timeVal) >= endTimeDiff) {
                   deduction = deduction + parseInt($scope.settings[j].deduction);
                   finalDaySal = finalDaySal - parseInt($scope.settings[j].deduction);
                   console.log('4', deduction, finalDaySal);

@@ -12,6 +12,7 @@ const desigRoute = require('./api/routes/desigRoute');
 const settingRoute = require('./api/routes/settingRoute');
 const overtimeRoute = require('./api/routes/overtimeRoute');
 const employeeRoute = require('./api/routes/employeeRoute');
+const attendanceRoute = require('./api/routes/attendanceRoute');
 
 mongoose.connect("mongodb://localhost:27017/HRAssist");
 
@@ -25,12 +26,10 @@ app.use(bodyParser.json());
 
 
 app.use(express.static(path.join(__dirname, 'app')));
-
 /* GET home page. */
 app.get('/', function(req, res) {
   //Path to your main file
   res.status(200).sendFile(path.join(__dirname + './app/index.html')); 
-  // res.render('index', { title: 'Express' }); 
 });
 
 //All routes
@@ -38,16 +37,15 @@ app.use('/view_salary', salaryRoute);
 
 app.use('/view_shifts', shiftRoute);
 
-app.use('/create_desig', desigRoute)
-app.use('/view_desig', desigRoute)
+app.use('/designations', desigRoute);
 
-app.use('/view_settings', settingRoute)
+app.use('/view_settings', settingRoute);
 
-app.use('/overtime', overtimeRoute)
+app.use('/overtime', overtimeRoute);
 
-app.use('/create_emp', employeeRoute)
-app.use('/view_emp', employeeRoute)
+app.use('/employees', employeeRoute);
 
+app.use('/attendances', attendanceRoute);
 
 
 

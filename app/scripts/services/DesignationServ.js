@@ -5,16 +5,16 @@
      function($http){
       let obj = {
         saveDesig(desigData) {
-          return $http.post('/create_desig', desigData);
+          return $http.post('/designations', desigData);
         },
         editDesig() {
-          var request = $http.post('/create_desig', salary);
+          var request = $http.post('/designations', salary);
           request.then(function(response) {
             console.log(response.data);
           });
         },
         getDesig() {
-          return $http.get('/view_desig')
+          return $http.get('/designations')
         }
       };
         

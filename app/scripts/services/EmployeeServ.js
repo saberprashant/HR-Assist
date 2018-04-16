@@ -6,23 +6,23 @@
       let obj = {
 
         saveEmployee(empData) {
-          return $http.post('/create_emp', empData);
+          return $http.post('/employees', empData);
         },
 
         editEmployee(emp) {
-          return $http.put('/create_emp/' + emp._id, emp);
+          return $http.put('/employees/' + emp._id, emp);
         },
 
         getEmployee() {
-          return $http.get('/view_emp');
+          return $http.get('/employees');
         },
 
         getEmployeeWithId(data) {
-          return $http.get('/create_emp/' + data.id);
+          return $http.get('/employees/' + data.id);
         },
 
         deleteEmployee(id) {
-          return $http.delete('/view_emp/' + id)
+          return $http.delete('/employees/' + id)
         }
       };
         

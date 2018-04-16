@@ -5,20 +5,20 @@ angular.module("hrmsAngularjsApp")
     function ($http) {
       let obj = {
         saveAttendance(attendance) {
-          return $http.post('http://localhost:3000/attendances', attendance);
+          return $http.post('/attendances', attendance);
         },
 
-        editAttendance(attendance) {
-          return $http.put('http://localhost:3000/attendances/' + attendance.id, attendance);
-        },
+        // editAttendance(attendance) {
+        //   return $http.put('http://localhost:3000/attendances/' + attendance.id, attendance);
+        // },
 
         getAttendances() {
-          return $http.get('http://localhost:3000/attendances');
+          return $http.get('/attendances');
         },
 
-        deleteAttendance(id) {
-          return $http.delete('http://localhost:3000/attendances/' + id)
-        }
+        // deleteAttendance(id) {
+        //   return $http.delete('http://localhost:3000/attendances/' + id)
+        // }
       };
 
       return obj;

@@ -26,7 +26,7 @@ angular.module("hrmsAngularjsApp")
         // var month = $scope.attendanceDate.getMonth();
         // var day = $scope.attendanceDate.getDate();
 
-        $scope.empAttendance.empId = $scope.empSelected.id;
+        $scope.empAttendance.empId = $scope.empSelected._id;
         $scope.empAttendance.empName = $scope.empSelected.firstName;
 
         $scope.empAttendance.checkInTime = $scope.checkInTime;
