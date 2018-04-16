@@ -64,7 +64,7 @@
 					ng-repeat="item in selectedSalaries" dnd-draggable="item" dnd-moved="selectedSalaries.splice($index, 1)" 
 					dnd-effect-allowed="move">
 						<b>{{item.name}}</b>
-						<a class="pull-right" ng-click="remove(item.id)">
+						<a class="pull-right" ng-click="remove(item._id)">
 							<span class="glyphicon glyphicon-remove"></span>
 						</a>
 						<br> %Age of basic

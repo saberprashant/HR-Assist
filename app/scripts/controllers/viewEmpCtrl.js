@@ -17,7 +17,7 @@ angular.module("hrmsAngularjsApp")
 
 
       $scope.editEmp = function (emp) {
-        $state.go('create_emp', { 'type': 'edit', 'id': emp.id })
+        $state.go('create_emp', { 'type': 'edit', 'id': emp._id })
       }
 
 

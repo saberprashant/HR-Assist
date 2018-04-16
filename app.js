@@ -11,6 +11,7 @@ const shiftRoute = require('./api/routes/shiftRoute');
 const desigRoute = require('./api/routes/desigRoute');
 const settingRoute = require('./api/routes/settingRoute');
 const overtimeRoute = require('./api/routes/overtimeRoute');
+const employeeRoute = require('./api/routes/employeeRoute');
 
 mongoose.connect("mongodb://localhost:27017/HRAssist");
 
@@ -44,6 +45,8 @@ app.use('/view_settings', settingRoute)
 
 app.use('/overtime', overtimeRoute)
 
+app.use('/create_emp', employeeRoute)
+app.use('/view_emp', employeeRoute)
 
 
 

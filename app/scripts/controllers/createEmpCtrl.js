@@ -14,11 +14,11 @@ angular.module("hrmsAngularjsApp")
 
       //get all designations from db
       DesignationServ.getDesig()
-        .then(function (data) {
-          $scope.designations = data;
+        .then(function (response) {
+          $scope.designations = response.data;
         });
 
-      //get all shifts fromm db
+      //get all shifts from db
       ShiftsServ.getShifts()
         .then(function (response) {
           $scope.shifts = response.data;
@@ -43,8 +43,13 @@ angular.module("hrmsAngularjsApp")
             $scope.emp = response.data;
             $scope.selectedSalaries = $scope.emp.salaryStructure;
 
-            // take care of $scope.designations array (from 0 to n-1) and $scope.emp.designationId (from 1 to n)
-            $scope.designation = $scope.designations[$scope.emp.designationId - 1];
+            // for setting assigned designation to employee
+            for(let i = 0; i < $scope.designations.length; i++) {
+              if($scope.designations[i]._id === $scope.emp.designationId) {
+                $scope.designation = $scope.designations[i];
+              }
+            }
+
             console.log('$scope.designations', $scope.designations);
             console.log('$scope.designation', $scope.designation);
 
@@ -80,8 +85,8 @@ angular.module("hrmsAngularjsApp")
         $scope.selectedSalaries.splice($scope.selectedSalaries.length - 1, 1);
 
 
-        //set up thr id of designations in emp
-        $scope.emp.designationId = $scope.designation.id;
+        //set up the id of designations in emp
+        $scope.emp.designationId = $scope.designation._id;
         console.log('update getDesigSalaryStructure');
         console.log($scope.selectedSalaries);
         $scope.changeAvailableSalaries();
@@ -95,7 +100,7 @@ angular.module("hrmsAngularjsApp")
 
         console.log('inside changeAvailableSalaries');
 
-        // common for both edit employee and for new employee
+        // common for both edit employee and new employee
         var availSalariesForEmp = [];       //available salaries for employee = (all available Salaries - selected 
         //                                   salaries of designation)
         var match = false;
@@ -141,7 +146,7 @@ angular.module("hrmsAngularjsApp")
                 $scope.total = parseInt($scope.total) - parseInt($scope.selectedSalaries[i].amount);
             }
           }
-        }, 500);
+        });
       };
 
       // //Set total to basic amount initially
@@ -153,9 +158,9 @@ angular.module("hrmsAngularjsApp")
         $scope.emp.salaryStructure = $scope.selectedSalaries;
         $scope.emp.totalSal = $scope.total;
         for(let i=0; i<$scope.shifts.length; i++) {
-          console.log('shift name', $scope.shifts[i].name);
-          if($scope.shifts[i].id == $scope.emp.shiftId) {
-            console.log('shift id', $scope.shifts[i].id);
+          // console.log('shift name', $scope.shifts[i].name);
+          if($scope.shifts[i]._id == $scope.emp.shiftId) {
+            console.log('shift id', $scope.shifts[i]._id);
             $scope.emp.shiftName = $scope.shifts[i].name;
           }
         }
@@ -171,11 +176,12 @@ angular.module("hrmsAngularjsApp")
         if ($stateParams.type == 'new') {
           //save emp object in db for employees
           EmployeeServ.saveEmployee($scope.emp)
-            .then(success, failed).finally(function () {
-              $timeout(function () {
-                $state.go("view_emp");
-              }, 2000);
-            });
+            .then(success, failed);
+            // .finally(function () {
+            //   $timeout(function () {
+            //     $state.go("view_emp");
+            //   }, 2000);
+            // });
 
           function success(data) {
             $scope.employeeSuccess = true;
@@ -191,11 +197,12 @@ angular.module("hrmsAngularjsApp")
         else if ($stateParams.type == 'edit') {
           //update emp with edited data in db for employees
           EmployeeServ.editEmployee($scope.emp)
-            .then(success, failed).finally(function () {
-              $timeout(function () {
-                $state.go("view_emp");
-              }, 2000);
-            });
+            .then(success, failed);
+            // .finally(function () {
+            //   $timeout(function () {
+            //     $state.go("view_emp");
+            //   }, 2000);
+            // });
 
           function success() {
             $scope.employeeUpdateSuccess = true;
@@ -212,7 +219,7 @@ angular.module("hrmsAngularjsApp")
       //Remove item from selected salaries
       $scope.remove = function (id) {
         for (let i = 0; i < $scope.selectedSalaries.length; i++) {
-          if ($scope.selectedSalaries[i].id === id) {
+          if ($scope.selectedSalaries[i]._id === id) {
             $scope.availableSalaries.push($scope.selectedSalaries[i])
             $scope.selectedSalaries.splice(i, 1);
           }

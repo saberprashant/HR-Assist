@@ -126,7 +126,7 @@
 			</option>
 		</select> -->
 
-<!-- optimmized way of doing -->
+<!-- optimized way of doing -->
 		<select ng-change="getDesigSalaryStructure()" ng-model="designation" class="form-control" 
 		ng-options="item as item.name for item in designations"
 		ng-required="true" name="designation2">
@@ -171,7 +171,7 @@
 					<li ng-init="item.valueType=='custom'" ng-show="item.name!='basic'" uib-alert ng-class="{ 'alert-success': item.type === 'allowance','alert-danger': item.type==='deduction'}"
 					 ng-repeat="item in selectedSalaries" dnd-draggable="item" dnd-moved="selectedSalaries.splice($index, 1)" dnd-effect-allowed="move">
 						<b>{{item.name}}</b>
-						<a class="pull-right" ng-click="remove(item.id)">
+						<a class="pull-right" ng-click="remove(item._id)">
 							<span class="glyphicon glyphicon-remove"></span>
 						</a>
 						<br> %Age of basic
@@ -215,7 +215,7 @@
 
 		Select Shift
 		<select ng-model="emp.shiftId" class="form-control" ng-required="true" name="shift">
-			<option ng-repeat="shift in shifts" value="{{shift.id}}">{{shift.name}}</option>
+			<option ng-repeat="shift in shifts" value="{{shift._id}}">{{shift.name}}</option>
 		</select>
 		<div uib-alert class="alert-danger" ng-messages="createEmployee.shift.$error" ng-if="createEmployee.shift.$invalid && createEmployee.shift.$touched">
 			<p ng-message="required">It is a required field</p>
