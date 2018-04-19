@@ -6,6 +6,7 @@
       let obj = {
 
         saveEmployee(empData) {
+          console.log('Emp data in emp service', empData);
           return $http.post('/employees', empData);
         },
 

@@ -5,47 +5,47 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+const routes = require('./api/routes');
+const passport = require('passport');
+require('./passport');        //for passport.js file
+const passportAuth = passport.authenticate('jwt', {session: false});
 
-const salaryRoute = require('./api/routes/salaryRoute');
-const shiftRoute = require('./api/routes/shiftRoute');
-const desigRoute = require('./api/routes/desigRoute');
-const settingRoute = require('./api/routes/settingRoute');
-const overtimeRoute = require('./api/routes/overtimeRoute');
-const employeeRoute = require('./api/routes/employeeRoute');
-const attendanceRoute = require('./api/routes/attendanceRoute');
-
+// connection to mongodb
 mongoose.connect("mongodb://localhost:27017/HRAssist");
 
+// Middlewares
 app.use(morgan("dev"));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// For CORS
 // app.use((req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "*");
 // })
 
-
 app.use(express.static(path.join(__dirname, 'app')));
 /* GET home page. */
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
   //Path to your main file
-  res.status(200).sendFile(path.join(__dirname + './app/index.html')); 
+  res.status(200).sendFile(path.join(__dirname + './app/index.html'));
 });
 
 //All routes
-app.use('/view_salary', salaryRoute);
+app.use('/auth', routes.authRoute);
 
-app.use('/view_shifts', shiftRoute);
+app.use('/view_salary',passportAuth, routes.salaryRoute);
 
-app.use('/designations', desigRoute);
+app.use('/view_shifts',passportAuth, routes.shiftRoute);
 
-app.use('/view_settings', settingRoute);
+app.use('/designations',passportAuth, routes.desigRoute);
 
-app.use('/overtime', overtimeRoute);
+app.use('/view_settings',passportAuth, routes.settingRoute);
 
-app.use('/employees', employeeRoute);
+app.use('/overtime',passportAuth, routes.overtimeRoute);
 
-app.use('/attendances', attendanceRoute);
+app.use('/employees',passportAuth, routes.employeeRoute);
+
+app.use('/attendances',passportAuth, routes.attendanceRoute);
 
 
 

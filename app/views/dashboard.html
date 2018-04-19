@@ -1,0 +1,94 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar">
+    <div class="sidebar-header" style="text-align:center">
+      <a ui-sref="home.dashboard">
+        <h3>HR Assist</h3>
+      </a>
+    </div>
+    <hr width="230px">
+    <ul class="list-unstyled components">
+      <li>
+        <a ui-sref="home.view_salary()">
+          <i class="glyphicon glyphicon-list-alt"></i>
+          Salary Components
+        </a>
+      </li>
+      <li>
+        <a href="#desigSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="glyphicon glyphicon-briefcase"></i>
+          Designations
+        </a>
+        <ul class="collapse list-unstyled" id="desigSubmenu">
+          <li>
+            <a ui-sref="home.create_desig()">Create</a>
+          </li>
+          <li>
+            <a ui-sref="home.view_desig()">View</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a ui-sref="home.view_shifts()">
+          <i class="glyphicon glyphicon-list-alt"></i>
+          Shifts
+        </a>
+      </li>
+      <li>
+        <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false">
+          <i class="glyphicon glyphicon-user"></i>
+          Employees
+        </a>
+        <ul class="collapse list-unstyled" id="empSubmenu">
+          <li>
+            <a ui-sref="home.create_emp()">Create</a>
+          </li>
+          <li>
+            <a ui-sref="home.view_emp()">View</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a ui-sref="home.take_attendance()">
+          <i class="glyphicon glyphicon-time"></i>
+          Capture Attendance
+        </a>
+      </li>
+      <li>
+        <a ui-sref="home.view_settings()">
+          <i class="glyphicon glyphicon-cog"></i>
+          Settings
+        </a>
+      </li>
+      <li>
+        <a ui-sref="home.reports()">
+          <i class="glyphicon glyphicon-stats"></i>
+          Reports
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <!-- Page Content Holder -->
+  <div id="content" class="col-sm-9">
+    <ui-view name="dashView"> </ui-view>
+
+
+    <!-- <nav class="navbar navbar-default">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+            <i class="glyphicon glyphicon-align-left"></i>
+            <span>Toggle Sidebar</span>
+          </button>
+        </div>
+
+
+      </div>
+    </nav> -->
+
+
+  </div>
+</div>

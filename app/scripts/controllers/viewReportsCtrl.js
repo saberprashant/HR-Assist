@@ -32,7 +32,7 @@ angular.module("hrmsAngularjsApp")
         .then(function (response) {
           $scope.overtime = response.data[0];
           $scope.overtimeAllowance = $scope.overtime.allowance;
-        })
+        });
 
 
       $scope.viewReport = function () {
@@ -67,6 +67,9 @@ angular.module("hrmsAngularjsApp")
 
             var startTimeDiff = (shiftStartHours - report.checkInTime.getHours()) * 60;   //in minutes
             var endTimeDiff = (shiftEndHours - report.checkOutTime.getHours()) * 60;      //in minutes
+            var startTimeDiffMins = (shiftStartHours - report.checkInTime.getMinutes());
+            var endTimeDiffMins = (shiftEndHours - report.checkOutTime.getMinutes())
+
             var startTimeDiffHours = shiftStartHours - report.checkInTime.getHours();
             var endTimeDiffHours = shiftEndHours - report.checkOutTime.getHours();
 

@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>HR Assist</title>
+  <base href="/">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -37,100 +38,7 @@
   <!-- Add your site or application content here -->
   <!-- Page Content Holder -->
 
-  <div class="wrapper">
-    <!-- Sidebar Holder -->
-    <nav id="sidebar">
-      <div class="sidebar-header" style="text-align:center">
-        <a ui-sref="home()">
-          <h3>HR Assist</h3>
-        </a>
-      </div>
-      <hr width="230px">
-      <ul class="list-unstyled components">
-        <li>
-          <a ui-sref="view_salary()">
-            <i class="glyphicon glyphicon-list-alt"></i>
-            Salary Components
-          </a>
-        </li>
-        <li>
-          <a href="#desigSubmenu" data-toggle="collapse" aria-expanded="false">
-            <i class="glyphicon glyphicon-briefcase"></i>
-            Designations
-          </a>
-          <ul class="collapse list-unstyled" id="desigSubmenu">
-            <li>
-              <a ui-sref="create_desig()">Create</a>
-            </li>
-            <li>
-              <a ui-sref="view_desig()">View</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a ui-sref="view_shifts()">
-            <i class="glyphicon glyphicon-list-alt"></i>
-            Shifts
-          </a>
-        </li>
-        <li>
-          <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false">
-            <i class="glyphicon glyphicon-user"></i>
-            Employees
-          </a>
-          <ul class="collapse list-unstyled" id="empSubmenu">
-            <li>
-              <a ui-sref="create_emp()">Create</a>
-            </li>
-            <li>
-              <a ui-sref="view_emp()">View</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a ui-sref="take_attendance()">
-            <i class="glyphicon glyphicon-time"></i>
-            Capture Attendance
-          </a>
-        </li>
-        <li>
-          <a ui-sref="view_settings()">
-            <i class="glyphicon glyphicon-cog"></i>
-            Settings
-          </a>
-        </li>
-        <li>
-          <a ui-sref="reports()">
-            <i class="glyphicon glyphicon-stats"></i>
-            Reports
-          </a>
-        </li>
-      </ul>
-
-    </nav>
-
-    <!-- Page Content Holder -->
-    <div id="content" class="col-sm-9">
-      <div ui-view> </div>
-
-
-      <!-- <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-          <div class="navbar-header">
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-              <i class="glyphicon glyphicon-align-left"></i>
-              <span>Toggle Sidebar</span>
-            </button>
-          </div>
-
-
-        </div>
-      </nav> -->
-
-
-    </div>
-  </div>
+  <div ui-view> </div>
 
 
 
@@ -188,7 +96,8 @@
   <script src="scripts/controllers/takeAttendanceCtrl.js"></script>
   <script src="scripts/controllers/createSettingsCtrl.js"></script>
   <script src="scripts/controllers/viewSettingsCtrl.js"></script>
-  <script src="scripts/controllers/viewReportsCtrl.js"></script>
+  <script src="scripts/controllers/viewReportsCtrl.js"></script>  
+  <script src="scripts/controllers/loginCtrl.js"></script>
 
 
   <!-- services -->
@@ -199,6 +108,9 @@
   <script src="scripts/services/AttendanceServ.js"></script>
   <script src="scripts/services/SettingsServ.js"></script>
   <script src="scripts/services/OvertimeServ.js"></script>
+  <script src="scripts/services/AuthServ.js"></script>
+  <script src="scripts/services/InterceptorServ.js"></script>
+
 
   <!-- endbuild -->
 

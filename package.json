@@ -46,8 +46,12 @@
     "angular-drag-and-drop-lists": "^2.1.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.0.14",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
     "ui-router": "^1.0.0-alpha.3"
   }
 }
