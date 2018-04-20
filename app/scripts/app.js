@@ -37,6 +37,45 @@ angular
       return true;
     }
 
+    function getSalaryData(SalaryServ) {
+      return SalaryServ.getSalaries()                //to get all salaries from db
+    }
+
+    function getDesigData(DesignationServ) {
+      return DesignationServ.getDesig()
+    }
+
+    function getShiftData(ShiftsServ) {
+      return ShiftsServ.getShifts()
+    }
+
+    function getEmpData(EmployeeServ) {
+      return EmployeeServ.getEmployee()
+    }
+
+    function getSettingData(SettingsServ) {
+      return SettingsServ.getSettings()                //to get all settings from db
+    }
+
+    function getOvertimeData(OvertimeServ) {
+      return OvertimeServ.getOvertime()
+    }
+
+    function getAttendanceData(AttendanceServ) {
+      return AttendanceServ.getAttendances()
+    }
+
+    function getReportData() {
+      let obj = {
+        ShiftData : getShiftData,
+        EmpData : getEmpData,
+        SettingData : getSettingData,
+        AttendanceData: getAttendanceData,
+        OvertimeData: getOvertimeData,
+      }
+      return obj;
+    }
+
     $stateProvider
 
       .state('login', {
@@ -61,9 +100,7 @@ angular
             templateUrl: 'views/welcome.html',
           }
         },
-        resolve: {
-          authorized: redirectIfNotAuthorized
-        }
+
       })
       .state('home.view_salary', {
         url: '/view_salary',
@@ -74,7 +111,8 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          // authorized: redirectIfNotAuthorized
+          SalaryData : getSalaryData
         }
       })
       .state('home.create_desig', {
@@ -85,9 +123,6 @@ angular
             controller: 'createDesigCtrl',
           }
         },
-        resolve: {
-          authorized: redirectIfNotAuthorized
-        }
       })
       .state('home.view_desig', {
         url: '/view_desig',
@@ -98,7 +133,8 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          // authorized: redirectIfNotAuthorized
+          DesigData : getDesigData
         }
       })
       .state('home.view_shifts', {
@@ -110,7 +146,8 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          // authorized: redirectIfNotAuthorized
+          ShiftData : getShiftData
         }
       })
       .state('home.create_emp', {
@@ -125,9 +162,6 @@ angular
           type: 'new',
           id: 0
         },
-        resolve: {
-          authorized: redirectIfNotAuthorized
-        }
       })
       .state('home.view_emp', {
         url: '/view_emp',
@@ -138,7 +172,8 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          // authorized: redirectIfNotAuthorized
+          EmpData : getEmpData
         }
       })
       .state('home.take_attendance', {
@@ -161,9 +196,7 @@ angular
             controller: 'createSettingsCtrl',
           }
         },
-        resolve: {
-          authorized: redirectIfNotAuthorized
-        }
+
       })
       .state('home.view_settings', {
         url: '/view_settings',
@@ -174,7 +207,9 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          // authorized: redirectIfNotAuthorized
+          SettingData : getSettingData,
+          OvertimeData: getOvertimeData
         }
       })
       .state('home.reports', {
@@ -186,7 +221,12 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          // authorized: redirectIfNotAuthorized
+          EmpData : getEmpData,
+          ShiftData: getShiftData,
+          AttendanceData: getAttendanceData,
+          OvertimeData: getOvertimeData,
+          SettingData: getSettingData
         }
       })
 

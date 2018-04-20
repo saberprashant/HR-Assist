@@ -1,18 +1,17 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewSalCtrl", ['$document', 'SalaryServ', '$scope', '$timeout', '$state', '$uibModal',
-    function ($document, SalaryServ, $scope, $timeout, $state, $uibModal) {
+  .controller("viewSalCtrl", ['$document', 'SalaryServ', '$scope', '$timeout', '$state', '$uibModal','SalaryData',
+    function ($document, SalaryServ, $scope, $timeout, $state, $uibModal, SalaryData) {
 
 
+      // SalaryServ.getSalaries()                //to get all salaries from db
+      //   .then(function (response) {
+      //     $scope.salaries = response.data;
+      //   });
 
-      SalaryServ.getSalaries()                //to get all salaries from db
-        .then(function (response) {
-          $scope.salaries = response.data;
-        });
-      // $scope.salaries = JSON.parse($scope.salaries)
-      // if($scope.salaries)
-      //  console.log($scope.salaries); 
+      $scope.salaries = SalaryData.data;       //Using resolved data
+      console.log('salaries from viewSalCtrl', $scope.salaries);
 
       //to add new salary component
       $scope.addSalWindow = function (size, parentSelector) {

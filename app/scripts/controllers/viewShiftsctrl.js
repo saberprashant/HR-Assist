@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewShiftsCtrl", ['ShiftsServ', '$document', '$scope', '$timeout', '$state', '$uibModal',
-    function (ShiftsServ, $document, $scope, $timeout, $state, $uibModal) {
+  .controller("viewShiftsCtrl", ['ShiftsServ', '$document', '$scope', '$timeout', '$state', '$uibModal','ShiftData',
+    function (ShiftsServ, $document, $scope, $timeout, $state, $uibModal, ShiftData) {
 
+      //get resolved shifts data
+      $scope.shifts = ShiftData.data;
 
       $scope.addShiftWindow = function (size, parentSelector) {
         var parentElem = parentSelector ?
@@ -42,13 +44,14 @@ angular.module("hrmsAngularjsApp")
         });
       }
 
-      ShiftsServ.getShifts()
-        .then(function (response) {
-          $scope.shifts = response.data;
-        });
+      // ShiftsServ.getShifts()
+      //   .then(function (response) {
+      //     $scope.shifts = response.data;
+      //   });
       // $scope.salaries = JSON.parse($scope.salaries)
       // if($scope.salaries)
       //  console.log($scope.salaries); 
+
 
 
 

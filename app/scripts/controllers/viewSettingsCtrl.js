@@ -1,22 +1,24 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewSettingsCtrl", ['$document','OvertimeServ', 'SettingsServ', '$scope', '$timeout', '$state', '$uibModal',
-    function ($document,OvertimeServ, SettingsServ, $scope, $timeout, $state, $uibModal) {
+  .controller("viewSettingsCtrl", ['$document','OvertimeServ', 'SettingsServ', '$scope', '$timeout', '$state', '$uibModal','SettingData', 'OvertimeData',
+    function ($document,OvertimeServ, SettingsServ, $scope, $timeout, $state, $uibModal, SettingData, OvertimeData) {
 
 
 
-      SettingsServ.getSettings()                //to get all settings from db
-        .then(function (response) {
-          $scope.settings = response.data;
-        });
+      // SettingsServ.getSettings()                //to get all settings from db
+      //   .then(function (response) {
+      //     $scope.settings = response.data;
+      //   });
+      // OvertimeServ.getOvertime()
+      // .then(function(response) {
+      //   $scope.overtime = response.data[0];
+      //   $scope.overtimeAllowance = $scope.overtime.allowance;
+      // })
 
-      OvertimeServ.getOvertime()
-      .then(function(response) {
-        $scope.overtime = response.data[0];
-        $scope.overtimeAllowance = $scope.overtime.allowance;
-      })
-
+      $scope.settings = SettingData.data;
+      $scope.overtime = OvertimeData.data[0];
+      $scope.overtimeAllowance = $scope.overtime.allowance;
       $scope.showEditOvertime = false;
 
 

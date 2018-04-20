@@ -1,15 +1,18 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewEmpCtrl", ['EmployeeServ', '$scope', '$timeout', '$state',
-    function (EmployeeServ, $scope, $timeout, $state) {
+  .controller("viewEmpCtrl", ['EmployeeServ', '$scope', '$timeout', '$state', 'EmpData',
+    function (EmployeeServ, $scope, $timeout, $state, EmpData) {
 
       $scope.employeeDeleteSuccess = false;
       $scope.employeeDeleteFailed = false;
-      EmployeeServ.getEmployee()
-        .then(function (response) {
-          $scope.employees = response.data;
-        });
+
+      // EmployeeServ.getEmployee()
+      //   .then(function (response) {
+      //     $scope.employees = response.data;
+      //   });
+
+      $scope.employees = EmpData.data;
 
       $scope.addEmp = function () {
         $state.go('home.create_emp', { 'type': 'new', 'id': 0 });
@@ -27,7 +30,7 @@ angular.module("hrmsAngularjsApp")
         EmployeeServ.deleteEmployee(id)
           .then(success, failed).finally(function () {
             $timeout(function () {
-              $state.go("home.view_emp",{},{'reload':true});
+              $state.go("home.view_emp", {}, { 'reload': true });
             }, 1000);
           });
 

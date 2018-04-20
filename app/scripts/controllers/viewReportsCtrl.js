@@ -1,38 +1,47 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewReportsCtrl", ['OvertimeServ', 'ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state',
-    function (OvertimeServ, ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state) {
+  .controller("viewReportsCtrl", ['OvertimeServ', 'ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state','ShiftData', 'EmpData', 'SettingData', 'AttendanceData', 'OvertimeData',
+    function (OvertimeServ, ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state, ShiftData, EmpData, SettingData, AttendanceData, OvertimeData) {
 
       $scope.showReport = false;
+
       //get all emp data
-      EmployeeServ.getEmployee()
-        .then(function (response) {
-          $scope.employees = response.data;
-        });
+      // EmployeeServ.getEmployee()
+      //   .then(function (response) {
+      //     $scope.employees = response.data;
+      //   });
 
-      //get all settings data
-      SettingsServ.getSettings()
-        .then(function (response) {
-          $scope.settings = response.data;
-        });
 
-      //get all attendance data
-      AttendanceServ.getAttendances()
-        .then(function (response) {
-          $scope.attendances = response.data;
-        });
+      // //get all settings data
+      // SettingsServ.getSettings()
+      //   .then(function (response) {
+      //     $scope.settings = response.data;
+      //   });
 
-      ShiftsServ.getShifts()
-        .then(function (response) {
-          $scope.shifts = response.data;
-        });
+      // //get all attendance data
+      // AttendanceServ.getAttendances()
+      //   .then(function (response) {
+      //     $scope.attendances = response.data;
+      //   });
 
-      OvertimeServ.getOvertime()
-        .then(function (response) {
-          $scope.overtime = response.data[0];
-          $scope.overtimeAllowance = $scope.overtime.allowance;
-        });
+      // ShiftsServ.getShifts()
+      //   .then(function (response) {
+      //     $scope.shifts = response.data;
+      //   });
+
+      // OvertimeServ.getOvertime()
+      //   .then(function (response) {
+      //     $scope.overtime = response.data[0];
+      //     $scope.overtimeAllowance = $scope.overtime.allowance;
+      //   });
+
+      //Using resolved data
+      $scope.shifts = ShiftData.data;
+      $scope.employees = EmpData.data;
+      $scope.settings = SettingData.data;
+      $scope.attendances = AttendanceData.data;
+      $scope.overtimeAllowance = OvertimeData.data[0].allowance;
 
 
       $scope.viewReport = function () {
@@ -94,18 +103,18 @@ angular.module("hrmsAngularjsApp")
               }
             }
             else if (startTimeDiff > 0) {     //early start - overtime (start)
-                  overtime = overtime + (parseInt($scope.overtimeAllowance) * startTimeDiffHours);
-                  finalDaySal = finalDaySal + (parseInt($scope.overtimeAllowance) * startTimeDiffHours);
-                  console.log('2', overtime, finalDaySal);
+              overtime = overtime + (parseInt($scope.overtimeAllowance) * startTimeDiffHours);
+              finalDaySal = finalDaySal + (parseInt($scope.overtimeAllowance) * startTimeDiffHours);
+              console.log('2', overtime, finalDaySal);
             }
 
 
             //for end shift time difference
             if (endTimeDiff < 0) {        //working late - overtime (end)
               endTimeDiffHours *= -1;
-                  overtime = overtime + (parseInt($scope.overtimeAllowance) * endTimeDiffHours);
-                  finalDaySal = finalDaySal + (parseInt($scope.overtimeAllowance) * endTimeDiffHours);
-                  console.log('3', overtime, finalDaySal);
+              overtime = overtime + (parseInt($scope.overtimeAllowance) * endTimeDiffHours);
+              finalDaySal = finalDaySal + (parseInt($scope.overtimeAllowance) * endTimeDiffHours);
+              console.log('3', overtime, finalDaySal);
             }
             else if (endTimeDiff > 0) {      //left early - deduction (end)
               for (let j = 0; j < $scope.settings.length; j++) {
@@ -137,7 +146,7 @@ angular.module("hrmsAngularjsApp")
           }
         }
 
-        $scope.reportData.sort(function(a,b){             //sorting the array for attendance date
+        $scope.reportData.sort(function (a, b) {             //sorting the array for attendance date
           return new Date(a.attendanceDate) - new Date(b.attendanceDate);
         });
         console.log('$scope.reportData', $scope.reportData);
