@@ -26,12 +26,12 @@ angular
 
   // Routes
   .config(function ($stateProvider, $locationProvider, $httpProvider) {
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('requestInterceptor');
 
     function redirectIfNotAuthorized($state, AuthServ) {
       if (!AuthServ.checkAuthorized()) {
-        $state.go("login");
+        $state.go("login",{},{reload: true});
         return false;
       }
       return true;

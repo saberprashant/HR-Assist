@@ -49,10 +49,10 @@ app.use('/api/attendances',passportAuth, routes.attendanceRoute);
 //   res.status(200).sendFile(path.join(__dirname + '/app/index.html'));
 // });
 
-app.get('*', function(req, res){
-  // console.log(path.join(__dirname + './app/index.html'));
-  res.render('./app/index.html');
-});
+// app.get('*', function(req, res){
+//   // console.log(path.join(__dirname + './app/index.html'));
+//   res.render('./app/index.html');
+// });
 
 
 module.exports = app;
