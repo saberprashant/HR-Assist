@@ -19,8 +19,8 @@
         </div>
         <div class="panel-body">
           <h4>Time : {{setting.timeVal}} min.</h4>
-          <h4 ng-if="!(setting.name == 'Overtime')">Deduction : {{setting.deduction}} INR</h4>
-          <h4 ng-if="(setting.name == 'Overtime')">Allowance : {{setting.deduction}} INR</h4>
+          <h4 ng-if="!(setting.name == 'Overtime')">Deduction : {{setting.deduction}} %</h4>
+          <h4 ng-if="(setting.name == 'Overtime')">Allowance : {{setting.deduction}} %</h4>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
             <h4>Allowance : </h4>
           </div>
           <div class="col-md-6">
-            <input class="form-control" type="text" name="settingOvertime" placeholder="like, 200, 400" ng-model="overtime.allowance"
+            <input class="form-control" type="text" name="settingOvertime" placeholder="like, 5, 10 in %" ng-model="overtime.allowance"
               ng-maxlength="4" ng-required="true" ng-pattern="/^[0-9]*$/">
           </div>
           <div class="col-md-3">
@@ -62,7 +62,7 @@
           <p ng-message="maxlength">This should be under 4 values.</p>
         </div>
       </form>
-      <h4 ng-if="!showEditOvertime">Allowance : {{overtimeAllowance}} INR</h4>
+      <h4 ng-if="!showEditOvertime">Allowance : {{overtimeAllowance}} %</h4>
     </div>
   </div>
 

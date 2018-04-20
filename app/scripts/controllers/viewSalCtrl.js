@@ -62,14 +62,14 @@ angular.module("hrmsAngularjsApp")
           console.log("Salary Comp. deleted successfully");
           $scope.salDeleteSuccess = true;         //for error message
           $timeout(function () {
-            $state.go("view_salary",{},{'reload':true});
+            $state.go("home.view_salary",{},{'reload':true});
           }, 1000)
         };
 
         function failed() {
           $scope.salDeleteFailed = true;         //for error message
           $timeout(function () {
-            $state.go("view_salary",{},{'reload':true});
+            $state.go("home.view_salary",{},{'reload':true});
           }, 1000)
         };
 

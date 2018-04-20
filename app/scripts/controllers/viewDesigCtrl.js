@@ -10,7 +10,7 @@ angular.module("hrmsAngularjsApp")
       });
 
       $scope.addDesig = function() {
-        $state.go('create_desig');
+        $state.go('home.create_desig');
       }
 
 

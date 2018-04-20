@@ -68,14 +68,14 @@ angular.module("hrmsAngularjsApp")
           console.log("Setting deleted successfully");
           $scope.settingDeleteSuccess = true;         //for error message
           $timeout(function () {
-            $state.go("view_settings",{},{'reload':true});
+            $state.go("home.view_settings",{},{'reload':true});
           }, 1000)
         };
 
         function failed() {
           $scope.settingDeleteFailed = true;         //for error message
           $timeout(function () {
-            $state.go("view_settings",{},{'reload':true});
+            $state.go("home.view_settings",{},{'reload':true});
           }, 1000)
         };
 
@@ -90,7 +90,7 @@ angular.module("hrmsAngularjsApp")
         OvertimeServ.editOvertime($scope.overtime)
         .then(function(response) {
           $scope.showEditOvertime = false;
-          $state.go("view_settings",{},{'reload':true});
+          $state.go("home.view_settings",{},{'reload':true});
         });
       }
 

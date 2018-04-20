@@ -34,6 +34,7 @@ angular.module("hrmsAngularjsApp")
 
         //Adding employee attendance to db
         if ($scope.empAttendance.empId) {
+          $scope.empAttendance.salaryStructure
           AttendanceServ.saveAttendance($scope.empAttendance)
             .then(success, failed).finally(function () {
               $timeout(function () {

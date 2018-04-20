@@ -66,7 +66,7 @@ angular.module("hrmsAngularjsApp")
 
       $scope.cancel = function () {
         $uibModalInstance.close();
-        $state.go("view_shifts",{},{'reload':true});
+        $state.go("home.view_shifts",{},{'reload':true});
       }
     }]);
 

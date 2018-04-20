@@ -61,14 +61,14 @@ angular.module("hrmsAngularjsApp")
           console.log("Shift deleted successfully");
           $scope.shiftDeleteSuccess = true;         //for error message
           $timeout(function () {
-            $state.go("view_shifts",{},{'reload':true});
+            $state.go("home.view_shifts",{},{'reload':true});
           }, 1000)
         };
 
         function failed() {
           $scope.shiftDeleteFailed = true;         //for error message
           $timeout(function () {
-            $state.go("view_shifts",{},{'reload':true});
+            $state.go("home.view_shifts",{},{'reload':true});
           }, 1000)
         };
 

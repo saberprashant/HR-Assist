@@ -33,8 +33,8 @@
         </div>
 
         <div>
-            <h4>Deduction : </h4>
-            <input class="form-control" type="text" name="settingDeduc" placeholder="like, 200, 400"
+            <h4>Deduction in %: </h4>
+            <input class="form-control" type="text" name="settingDeduc" placeholder="like, 10, 20 in %"
              ng-model="setting.deduction"  ng-maxlength="4" ng-required="true" ng-pattern="/^[0-9]*$/">
           </div>
           <div uib-alert class="alert-danger" ng-messages="form.settingDeduc.$error" ng-if="form.settingDeduc.$invalid && 
