@@ -157,13 +157,16 @@ angular.module("hrmsAngularjsApp")
       $scope.addEmployee = function () {
         $scope.emp.salaryStructure = $scope.selectedSalaries;
         $scope.emp.totalSal = $scope.total;
-        for(let i=0; i<$scope.shifts.length; i++) {
-          // console.log('shift name', $scope.shifts[i].name);
-          if($scope.shifts[i]._id == $scope.emp.shiftId) {
-            console.log('shift id', $scope.shifts[i]._id);
-            $scope.emp.shiftName = $scope.shifts[i].name;
-          }
-        }
+
+        // old way of assigning shit name and id to employee,
+        // now, I am assigning whole selected shift to employee
+        // for(let i=0; i<$scope.shifts.length; i++) {
+        //   // console.log('shift name', $scope.shifts[i].name);
+        //   if($scope.shifts[i]._id == $scope.emp.shiftId) {
+        //     console.log('shift id', $scope.shifts[i]._id);
+        //     $scope.emp.shiftName = $scope.shifts[i].name;
+        //   }
+        // }
 
         if ($scope.emp.cAddress.sameAsPermanent) {
           $scope.emp.cAddress = $scope.emp.pAddress;

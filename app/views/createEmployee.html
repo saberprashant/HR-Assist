@@ -214,8 +214,8 @@
 
 
 		Select Shift
-		<select ng-model="emp.shiftId" class="form-control" ng-required="true" name="shift">
-			<option ng-repeat="shift in shifts" value="{{shift._id}}">{{shift.name}}</option>
+		<select ng-model="emp.shift" class="form-control" ng-required="true" name="shift">
+			<option ng-repeat="shift in shifts" value="{{shift}}">{{shift.name}}</option>
 		</select>
 		<div uib-alert class="alert-danger" ng-messages="createEmployee.shift.$error" ng-if="createEmployee.shift.$invalid && createEmployee.shift.$touched">
 			<p ng-message="required">It is a required field</p>
