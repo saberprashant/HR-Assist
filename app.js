@@ -24,29 +24,35 @@ app.use(bodyParser.json());
 // })
 
 app.use(express.static(path.join(__dirname, 'app')));
-/* GET home page. */
-app.get('/', function (req, res) {
-  //Path to your main file
-  res.status(200).sendFile(path.join(__dirname + './app/index.html'));
-});
 
 //All routes
-app.use('/auth', routes.authRoute);
+app.use('/api/auth', routes.authRoute);
 
-app.use('/view_salary',passportAuth, routes.salaryRoute);
+app.use('/api/view_salary',passportAuth, routes.salaryRoute);
 
-app.use('/view_shifts',passportAuth, routes.shiftRoute);
+app.use('/api/view_shifts',passportAuth, routes.shiftRoute);
 
-app.use('/designations',passportAuth, routes.desigRoute);
+app.use('/api/designations',passportAuth, routes.desigRoute);
 
-app.use('/view_settings',passportAuth, routes.settingRoute);
+app.use('/api/view_settings',passportAuth, routes.settingRoute);
 
-app.use('/overtime',passportAuth, routes.overtimeRoute);
+app.use('/api/overtime',passportAuth, routes.overtimeRoute);
 
-app.use('/employees',passportAuth, routes.employeeRoute);
+app.use('/api/employees',passportAuth, routes.employeeRoute);
 
-app.use('/attendances',passportAuth, routes.attendanceRoute);
+app.use('/api/attendances',passportAuth, routes.attendanceRoute);
 
+// /* GET home page. */
+// app.get('/', function (req, res) {
+//   //Path to your main file
+//   console.log('path from /', path.join(__dirname + '/app/index.html'));
+//   res.status(200).sendFile(path.join(__dirname + '/app/index.html'));
+// });
+
+app.get('*', function(req, res){
+  // console.log(path.join(__dirname + './app/index.html'));
+  res.render('./app/index.html');
+});
 
 
 module.exports = app;

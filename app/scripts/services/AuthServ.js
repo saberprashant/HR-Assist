@@ -5,7 +5,7 @@ angular.module("hrmsAngularjsApp")
     function ($http) {
       let obj = {
         login(userData) {
-          return $http.post('/auth/login', userData);
+          return $http.post('/api/auth/login', userData);
         },
 
 
@@ -14,7 +14,7 @@ angular.module("hrmsAngularjsApp")
         },
 
 
-        logout: function () {
+        logout() {
           window.localStorage.removeItem("authToken");
         }
       };

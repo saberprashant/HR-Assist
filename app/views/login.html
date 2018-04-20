@@ -1,21 +1,41 @@
-<div>
-
-<div class="col-sm-4">
-	<form name="loginForm" novalidate>
-			<div class="form-group">
-					<label for="username">Username</label>
-					<input ng-model="userEmail" type="text" id="username" name="username" class="form-control" placeholder="Enter email" autofocus="true" autocomplete="off" required>
+<div class="flex-container">
+	<h1>HR Assist</h1>
+	<h4>
+		<em> One stop HR solution for your company.</em>
+		<hr>
+	</h4>
+	<form name="loginForm" class="col-sm-4 logForm" novalidate>
+		<br>
+		<br>
+		<div class="form-group">
+			<label for="username" class="formHead">Username</label>
+			<input ng-model="userEmail" type="email" id="username" name="username" class="form-control" placeholder="Enter email" autofocus="true"
+			 autocomplete="off" required>
+			<div uib-alert class="alert-danger" ng-messages="loginForm.username.$error" ng-if="loginForm.username.$invalid && loginForm.username.$touched">
+				<p ng-message="email">
+					Please enter a valid email
+				</p>
+				<p ng-message="required">It is a required field</p>
 			</div>
-			<div class="form-group">
-					<label for="password">Password</label>
-					<input ng-model="userPass" type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+		</div>
+		<div class="form-group">
+			<label for="password" class="formHead">Password</label>
+			<input ng-model="userPass" type="password" id="password" name="password" class="form-control" placeholder="Enter password"
+			 required>
+			<div uib-alert class="alert-danger" ng-messages="loginForm.password.$error" ng-if="loginForm.password.$invalid && loginForm.password.$touched">
+				<p ng-message="required">It is a required field</p>
 			</div>
-			<div class="form-group">
-					<button type="submit" class="btn btn-primary" ng-click="loginBtn()">Log In</button>
-			</div>
+		</div>
+		<div class="form-group text-center">
+			<button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-click="loginBtn()">Log In</button>
+		</div>
+		<br>
+		<div uib-alert class="alert-danger" ng-show="loginFailed">
+			Incorrect credentials! Please enter again.
+		</div>
+		<div uib-alert class="alert-success" ng-show="loginSuccess">
+			You are logged in successfully.
+		</div>
+		<br><br><br><br><br><br><br><br><br><br><br>
 	</form>
 </div>
-
-</div>
-
-

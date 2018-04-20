@@ -44,10 +44,9 @@ angular
         templateUrl: 'views/login.html',
         controller: 'loginCtrl',
       })
-      // .state('otherwise', {
-      //   url: '*path',
-      //   templateUrl: 'views/welcome.html',
-      // })
+      .state('otherwise', {
+        redirectTo: 'home.dashboard' 
+      })
       .state('home', {
         url: '/home',
         templateUrl: 'views/dashboard.html',

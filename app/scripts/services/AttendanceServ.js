@@ -5,7 +5,7 @@ angular.module("hrmsAngularjsApp")
     function ($http) {
       let obj = {
         saveAttendance(attendance) {
-          return $http.post('/attendances', attendance);
+          return $http.post('/api/attendances', attendance);
         },
 
         // editAttendance(attendance) {
@@ -13,7 +13,7 @@ angular.module("hrmsAngularjsApp")
         // },
 
         getAttendances() {
-          return $http.get('/attendances');
+          return $http.get('/api/attendances');
         },
 
         // deleteAttendance(id) {

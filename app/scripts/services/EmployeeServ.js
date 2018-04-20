@@ -7,23 +7,23 @@
 
         saveEmployee(empData) {
           console.log('Emp data in emp service', empData);
-          return $http.post('/employees', empData);
+          return $http.post('/api/employees', empData);
         },
 
         editEmployee(emp) {
-          return $http.put('/employees/' + emp._id, emp);
+          return $http.put('/api/employees/' + emp._id, emp);
         },
 
         getEmployee() {
-          return $http.get('/employees');
+          return $http.get('/api/employees');
         },
 
         getEmployeeWithId(data) {
-          return $http.get('/employees/' + data.id);
+          return $http.get('/api/employees/' + data.id);
         },
 
         deleteEmployee(id) {
-          return $http.delete('/employees/' + id)
+          return $http.delete('/api/employees/' + id)
         }
       };
         
