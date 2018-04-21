@@ -15,6 +15,6 @@ angular.module("hrmsAngularjsApp")
         $state.go('home.create_desig');
       }
 
-
+      
     }]);
 

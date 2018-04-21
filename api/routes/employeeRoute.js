@@ -7,33 +7,50 @@ const Employee = require('../models/employeeModel')
 
 router.get('/', (req, res, next) => {
   Employee.find()
-  .exec()
-  .then(result => {
-    console.log('All Employees -> ', result);
-    res.status(200).json(result);
-  })
-  .catch(err => {
-    console.log('Employee get err -> ', err);
-    res.status(500).json({
-      error: err 
+    .exec()
+    .then(result => {
+      console.log('All Employees -> ', result);
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log('Employee get err -> ', err);
+      res.status(500).json({
+        error: err
+      });
     });
-  });
+});
+
+router.get('/desigreport', (req, res, next) => {
+
+  Employee.aggregate([{ "$group": { "_id": "$designationName", "totalSal": { "$sum": "$totalSal" } } }])
+    .exec()
+    .then(result => {
+      console.log('All expenses on Designations -> ', result);
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log('Expenses on Designations get err -> ', err);
+      res.status(500).json({
+        error: err
+      });
+    });
+
 });
 
 router.get('/:empID', (req, res, next) => {
   const id = req.params.empID;
   Employee.findById(id)
-  .exec()
-  .then(result => {
-    console.log('All Employees -> ', result);
-    res.status(200).json(result);
-  })
-  .catch(err => {
-    console.log('Employee get err -> ', err);
-    res.status(500).json({
-      error: err 
+    .exec()
+    .then(result => {
+      console.log('All Employees -> ', result);
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log('Employee get err -> ', err);
+      res.status(500).json({
+        error: err
+      });
     });
-  });
 });
 
 router.post('/', (req, res, next) => {
@@ -54,20 +71,20 @@ router.post('/', (req, res, next) => {
     shiftName: req.body.shiftName,
   });
   employee.save()
-  .then(result => {
-    console.log(result);
-    res.status(201).json({
-      message: "Employee Posted",
-      createdEmployee: employee
+    .then(result => {
+      console.log(result);
+      res.status(201).json({
+        message: "Employee Posted",
+        createdEmployee: employee
+      });
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({
+        error: err
+      });
     });
-  })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json({
-      error: err 
-    });
-  });
-  
+
 });
 
 router.put('/:empID', (req, res, next) => {
@@ -86,34 +103,34 @@ router.put('/:empID', (req, res, next) => {
     totalSal: req.body.totalSal,
     shiftName: req.body.shiftName,
   }
-  Employee.update({_id: id}, { $set: employee })
-  .exec()
-  .then(result => {
-    console.log('Employee put -> ',  result);
-    res.status(200).json(result);
-  })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json({
-      error: err 
+  Employee.update({ _id: id }, { $set: employee })
+    .exec()
+    .then(result => {
+      console.log('Employee put -> ', result);
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({
+        error: err
+      });
     });
-  });
 
 })
 
 router.delete('/:empID', (req, res, next) => {
   const id = req.params.empID;
-  Employee.remove({_id: id})
-  .exec()
-  .then(result => {
-    res.status(200).json(result);
-  })
-  .catch(err => {
-    console.log(err)
-    res.status(500).json({
-      error: err 
+  Employee.remove({ _id: id })
+    .exec()
+    .then(result => {
+      res.status(200).json(result);
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).json({
+        error: err
+      });
     });
-  });
 })
 
 

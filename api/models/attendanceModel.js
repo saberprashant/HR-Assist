@@ -7,6 +7,7 @@ const attendanceSchema = mongoose.Schema({
   empName: String,
   checkInTime: Date,
   checkOutTime: Date,
+  employee: Object
 });
 
 module.exports = mongoose.model('Attendance', attendanceSchema);

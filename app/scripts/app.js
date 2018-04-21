@@ -65,6 +65,10 @@ angular
       return AttendanceServ.getAttendances()
     }
 
+    function getDesigWiseReport(EmployeeServ) {
+      return EmployeeServ.getDesigWiseReport()
+    }
+
     function getReportData() {
       let obj = {
         ShiftData : getShiftData,
@@ -185,7 +189,11 @@ angular
           }
         },
         resolve: {
-          authorized: redirectIfNotAuthorized
+          authorized: redirectIfNotAuthorized,
+          EmpData : getEmpData,
+          ShiftData : getShiftData,
+          OvertimeData: getOvertimeData,
+          SettingData: getSettingData
         }
       })
       .state('home.create_settings', {
@@ -212,8 +220,8 @@ angular
           OvertimeData: getOvertimeData
         }
       })
-      .state('home.reports', {
-        url: '/reports',
+      .state('home.employee_report', {
+        url: '/employee/report',
         views: {
           'dashView': {
             templateUrl: 'views/viewReports.html',
@@ -226,7 +234,21 @@ angular
           ShiftData: getShiftData,
           AttendanceData: getAttendanceData,
           OvertimeData: getOvertimeData,
-          SettingData: getSettingData
+          SettingData: getSettingData,
+          DesigReport: getDesigWiseReport
+        }
+      })
+      .state('home.desig_report', {
+        url: '/desig/report',
+        views: {
+          'dashView': {
+            templateUrl: 'views/viewDesigReport.html',
+            controller: 'viewDesigReportCtrl',
+          }
+        },
+        resolve: {
+          // authorized: redirectIfNotAuthorized
+          DesigReport: getDesigWiseReport
         }
       })
 

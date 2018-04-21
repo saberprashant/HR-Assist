@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module("hrmsAngularjsApp")
-  .controller("viewReportsCtrl", ['OvertimeServ', 'ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state','ShiftData', 'EmpData', 'SettingData', 'AttendanceData', 'OvertimeData',
-    function (OvertimeServ, ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state, ShiftData, EmpData, SettingData, AttendanceData, OvertimeData) {
+  .controller("viewReportsCtrl", ['OvertimeServ', 'ShiftsServ', 'EmployeeServ', 'AttendanceServ', 'SettingsServ', '$scope', '$timeout', '$state','ShiftData', 'EmpData', 'SettingData', 'AttendanceData', 'OvertimeData', 'DesigReport',
+    function (OvertimeServ, ShiftsServ, EmployeeServ, AttendanceServ, SettingsServ, $scope, $timeout, $state, ShiftData, EmpData, SettingData, AttendanceData, OvertimeData, DesigReport) {
 
       $scope.showReport = false;
 
@@ -42,6 +42,7 @@ angular.module("hrmsAngularjsApp")
       $scope.settings = SettingData.data;
       $scope.attendances = AttendanceData.data;
       $scope.overtimeAllowance = OvertimeData.data[0].allowance;
+      $scope.desigReport = DesigReport.data;
 
 
       $scope.viewReport = function () {

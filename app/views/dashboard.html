@@ -65,11 +65,20 @@
         </a>
       </li>
       <li>
-        <a ui-sref="home.reports()">
+        <a href="#reports" data-toggle="collapse" aria-expanded="false">
           <i class="glyphicon glyphicon-stats"></i>
           Reports
         </a>
+        <ul class="collapse list-unstyled" id="reports">
+          <li>
+            <a ui-sref="home.employee_report()">Employee Specific</a>
+          </li>
+          <li>
+            <a ui-sref="home.desig_report()">Designation Specific</a>
+          </li>
+        </ul>
       </li>
+
     </ul>
 
   </nav>

@@ -45,6 +45,7 @@ router.post('/', (req, res, next) => {
     empName: req.body.empName,
     checkInTime: req.body.checkInTime,
     checkOutTime: req.body.checkOutTime,
+    employee: req.body.employee
   });
   attendance.save()
   .then(result => {

@@ -24,6 +24,10 @@
 
         deleteEmployee(id) {
           return $http.delete('/api/employees/' + id)
+        },
+
+        getDesigWiseReport() {
+          return $http.get('/api/employees/desigreport');
         }
       };
         

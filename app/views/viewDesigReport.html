@@ -1,0 +1,40 @@
+<div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Salary expenditure as per Designations</h3>
+      </div>
+      <div class="panel-body">
+
+        <!--Table-->
+        <br>
+        <table class="table">
+
+          <!--Table head-->
+          <thead class="table-success">
+            <tr class="text-white table-warning">
+              <th>Designation Name</th>
+              <th>Total Salary Expenditure</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+            <tr ng-repeat="item in desigReport">
+              <td>{{item._id}}</td>
+              <td>{{item.totalSal}}</td>
+
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+  </div>
+</div>

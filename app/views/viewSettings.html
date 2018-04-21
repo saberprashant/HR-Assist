@@ -19,8 +19,8 @@
         </div>
         <div class="panel-body">
           <h4>Time : {{setting.timeVal}} min.</h4>
-          <h4 ng-if="!(setting.name == 'Overtime')">Deduction : {{setting.deduction}} %</h4>
-          <h4 ng-if="(setting.name == 'Overtime')">Allowance : {{setting.deduction}} %</h4>
+          <h4 ng-if="!(setting.name == 'Overtime')">Deduction : {{setting.deduction}} INR</h4>
+          <h4 ng-if="(setting.name == 'Overtime')">Allowance : {{setting.deduction}} INR</h4>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
           <p ng-message="maxlength">This should be under 4 values.</p>
         </div>
       </form>
-      <h4 ng-if="!showEditOvertime">Allowance : {{overtimeAllowance}} %</h4>
+      <h4 ng-if="!showEditOvertime">Allowance : {{overtimeAllowance}} INR</h4>
     </div>
   </div>
 
